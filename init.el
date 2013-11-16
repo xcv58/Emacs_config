@@ -39,6 +39,13 @@
   (load custom-file))
 
 
+;;----------------------------------------------------------------------------
+;; Allow access from emacsclient
+;;----------------------------------------------------------------------------
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 
 ;;; Show startup time
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
