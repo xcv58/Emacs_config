@@ -28,6 +28,12 @@
  display-time-day-and-date t
 )
 
+;;; bracket
+(show-paren-mode t)
+
+
+
+
 
 (column-number-mode t)
 

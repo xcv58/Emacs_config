@@ -27,9 +27,11 @@
 (require 'init-dired)               ;; Directory display and operation
 (require 'init-ido)                 ;; InteractivelyDoThings
 (require 'init-auto-complete)
+(require 'init-matlab)
 
 
 (require 'init-vc)
+(require 'init-isearch)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
