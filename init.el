@@ -34,6 +34,7 @@
 (require 'init-ido)                 ;; InteractivelyDoThings
 (require 'init-auto-complete)
 (require 'init-matlab)
+(require 'init-ibuffer)
 
 
 (require 'init-vc)

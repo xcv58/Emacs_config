@@ -7,8 +7,22 @@
 ;;----------------------------------------------------------------------------
 ;; Key to switch between tabs, 
 ;;----------------------------------------------------------------------------
-(global-set-key (kbd "C-<tab>") 'next-buffer)
-(global-set-key (kbd "C-S-<tab>") 'previous-buffer)
+(defun my-next-buffer ()
+  "next-buffer, only skip *Messages*"
+  (interactive)
+  (next-buffer)
+  (while (string-match "\\*.*\\*" (buffer-name))
+      (next-buffer)))
+
+(defun my-previous-buffer ()
+  "next-buffer, only skip *Messages*"
+  (interactive)
+  (previous-buffer)
+  (while (string-match "\\*.*\\*" (buffer-name))
+      (previous-buffer)))
+
+(global-set-key (kbd "C-<tab>") 'my-next-buffer)
+(global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
 
 
 ;;----------------------------------------------------------------------------
