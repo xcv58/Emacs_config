@@ -641,7 +641,7 @@ If font lock is not loaded, lay in wait."
     (define-key km [(control c) (control j)] 'matlab-justify-line)
     (define-key km [(control c) (control q)] 'matlab-fill-region)
     (define-key km [(control c) (control s)] 'matlab-shell-save-and-go)
-    (define-key km [(control c) (control r)] 'matlab-shell-run-region)
+    (define-key km [(control c) (control r)] 'matlab-shell-run-region-or-line)
     (define-key km [(meta control return)] 'matlab-shell-run-cell)
     (define-key km [(control c) (control v)] 'matlab-shell-copy-cell)
     (define-key km [(control c) (control t)] 'matlab-show-line-info)
@@ -4049,7 +4049,7 @@ desired.  Optional argument FAST is not used."
       :active (and (not (matlab-with-emacs-link)) (matlab-shell-active-p))
       :visible (matlab-shell-active-p) ]
      ["Save and go" matlab-shell-save-and-go t]
-     ["Run Region" matlab-shell-run-region t]
+     ["Run Region" matlab-shell-run-region-or-line t]
      ["Run Cell" matlab-shell-run-cell t]
      ["Copy Cell" matlab-shell-copy-cell t]
      ["Version" matlab-show-version t]
@@ -5081,8 +5081,8 @@ This command requires an active MATLAB shell."
 			       (substring str (match-end 0)))))
 	   (while (string-match "\\`\n" str)
 	     (setq str (substring str (match-end 0))))
-	   (while (string-match "\n\\'" str)
-	     (setq str (substring str 0 (match-beginning 0))))
+;	   (while (string-match "\n\\'" str)
+;	     (setq str (substring str 0 (match-beginning 0))))
 	   (when noshow
 	     ;; Remove continuations
 	     (while (string-match
