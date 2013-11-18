@@ -4,7 +4,6 @@
 (add-to-list 'load-path user-emacs-directory)
 (require 'init-benchmarking) ;; Measure startup time
 
-
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
 
@@ -17,12 +16,19 @@
 
 
 ;;----------------------------------------------------------------------------
+;; Function for Specific Character
+;;----------------------------------------------------------------------------
+(require 'init-encoding)
+
+
+
+;;----------------------------------------------------------------------------
 ;; Features
 ;;----------------------------------------------------------------------------
 (require 'init-evil)
 
 
-(require 'init-display)             ;; Config about theme and font
+(require 'init-display-variable)             ;; Config about theme and font and variable
 (require 'init-latex)
 (require 'init-dired)               ;; Directory display and operation
 (require 'init-ido)                 ;; InteractivelyDoThings
@@ -32,12 +38,6 @@
 
 (require 'init-vc)
 (require 'init-isearch)
-
-
-;;----------------------------------------------------------------------------
-;; Function for Specific Character
-;;----------------------------------------------------------------------------
-(require 'init-encoding)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
