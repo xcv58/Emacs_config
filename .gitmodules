@@ -1,3 +1,0 @@
-[submodule "matlab-emacs"]
-	path = matlab-emacs
-	url = https://github.com/ruediger/matlab-emacs.git
