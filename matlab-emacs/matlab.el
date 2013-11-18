@@ -643,6 +643,7 @@ If font lock is not loaded, lay in wait."
     (define-key km [(control c) (control s)] 'matlab-shell-save-and-go)
     (define-key km [(control c) (control r)] 'matlab-shell-run-region)
     (define-key km [(meta control return)] 'matlab-shell-run-cell)
+    (define-key km [(control c) (control v)] 'matlab-shell-copy-cell)
     (define-key km [(control c) (control t)] 'matlab-show-line-info)
     (define-key km [(control c) ?. ] 'matlab-find-file-on-path)
     (define-key km [(control h) (control m)] matlab-help-map)
@@ -4050,6 +4051,7 @@ desired.  Optional argument FAST is not used."
      ["Save and go" matlab-shell-save-and-go t]
      ["Run Region" matlab-shell-run-region t]
      ["Run Cell" matlab-shell-run-cell t]
+     ["Copy Cell" matlab-shell-copy-cell t]
      ["Version" matlab-show-version t]
      "----"
      ["Find M file" matlab-find-file-on-path t]
@@ -5077,6 +5079,10 @@ This command requires an active MATLAB shell."
 	     (setq str (concat (substring str 0 (match-beginning 0))
 			       "\n"
 			       (substring str (match-end 0)))))
+	   (while (string-match "\\`\n" str)
+	     (setq str (substring str (match-end 0))))
+	   (while (string-match "\n\\'" str)
+	     (setq str (substring str 0 (match-beginning 0))))
 	   (when noshow
 	     ;; Remove continuations
 	     (while (string-match
@@ -5119,29 +5125,80 @@ This command requires an active MATLAB shell."
   "Run the cell the cursor is in."
   (interactive)
   (let ((start (save-excursion (end-of-line);(forward-page -1)
-				 (re-search-backward "\\(%%\\)\\|\\`")
-			       (if (looking-at "function")
-				   (error "You are not in a cell.  Try `matlab-shell-save-and-go' instead"))
-			       (point)))
-;			       (when (matlab-ltype-comm)
-;				 ;; Skip over starting comment from the current cell.
-;				 (matlab-end-of-command 1)
-;				 (end-of-line)
-;				 (forward-char 1)
-;				 )
-	(end (save-excursion (end-of-line)
-			     (re-search-forward "\\(%%\\)\\|\\'")
-			     (point))))
-;	(end (save-excursion ;(forward-page -1)
-;			     (when (matlab-ltype-comm)
-;			       (beginning-of-line)
-;			       (forward-char -1))
-;				 (message "end point: %s" (point))
-;			     (point))))
+                                 (re-search-backward "\\(%%\\)\\|\\`")
+                               (if (looking-at "function")
+                                   (error "You are not in a cell.  Try `matlab-shell-save-and-go' instead"))
+                               (point)))
+;                               (when (matlab-ltype-comm)
+;                                 ;; Skip over starting comment from the current cell.
+;                                 (matlab-end-of-command 1)
+;                                 (end-of-line)
+;                                 (forward-char 1)
+;                                 )
+        (end (save-excursion (end-of-line)
+                             (re-search-forward "\\(%%\\)\\|\\'")
+                             (point))))
+;        (end (save-excursion ;(forward-page -1)
+;                             (when (matlab-ltype-comm)
+;                               (beginning-of-line)
+;                               (forward-char -1))
+;                                 (message "end point: %s" (point))
+;                             (point))))
     (matlab-shell-run-region start end t)
     ;(message "%s %s" start end)
     )
 )
+
+(defun matlab-shell-copy-region (beg end &optional noshow)
+  (interactive "r")
+  (if (> beg end) (let (mid) (setq mid beg beg end end mid)))
+  (let ((command
+	 ;(let ((str (concat (buffer-substring beg end) "\n")))
+	 (let ((str (buffer-substring beg end)))
+	   ;; Remove comments
+	   (with-temp-buffer
+	     (insert str)
+	     (goto-char (point-min))
+	     (while (search-forward "%" nil t)
+	       (when (not (matlab-cursor-in-string))
+		 (delete-region (1- (point)) (matlab-point-at-eol))))
+	     (setq str (buffer-substring-no-properties (point-min) (point-max))))
+	   (while (string-match "\n\\s-*\n" str)
+	     (setq str (concat (substring str 0 (match-beginning 0))
+			       "\n"
+			       (substring str (match-end 0)))))
+	   (while (string-match "\\`\n" str)
+	     (setq str (substring str (match-end 0))))
+	   (while (string-match "\n\\'" str)
+	     (setq str (substring str 0 (match-beginning 0))))
+	   (when noshow
+	     ;; Remove continuations
+	     (while (string-match
+		     (concat "\\s-*"
+			     (regexp-quote matlab-elipsis-string)
+			     "\\s-*\n")
+		     str)
+	       (setq str (replace-match " " t t str))))
+	   str))
+	(inhibit-field-text-motion t))
+    (kill-new command)
+    ))
+
+(defun matlab-shell-copy-cell ()
+  "Copy the cell the cursor is in."
+  (interactive)
+  (let ((start (save-excursion (end-of-line);(forward-page -1)
+			       (re-search-backward "\\(%%\\)\\|\\`")
+			       (if (looking-at "function")
+				   (error "You are not in a cell.  Try `matlab-shell-save-and-go' instead"))
+			       (point)))
+	(end (save-excursion (end-of-line)
+			     (re-search-forward "\\(%%\\)\\|\\'")
+			     (point))))
+    (matlab-shell-copy-region start end t)
+					;(message "%s %s" start end)
+    )
+  )
 
 (defun matlab-shell-run-region-or-line ()
   "Run region from BEG to END and display result in MATLAB shell.
