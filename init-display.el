@@ -1,4 +1,16 @@
-(load-theme 'twilight-anti-bright t)
+(if window-system
+    (load-theme 'twilight-anti-bright t)
+  (load-theme 'manoj-dark t)
+  )
+(setq default-frame-alist
+      '((top . 200) (left . 400)
+	(width . 80) (height . 24)
+	(cursor-type . box)
+	(cursor-color . "#00ff00")
+	)
+      )
+(setq initial-frame-alist '((top . 0) (left . 30)))
+
 (custom-set-variables
 ; (custom-enabled-themes (quote ("twilight-anti-bright" default)))
  '(tool-bar-mode nil)
@@ -8,15 +20,7 @@
 
 (set-frame-font "Monaco-28")
 
-(setq default-frame-alist
-      '((top . 200) (left . 400)
-	(width . 80) (height . 24)
-	(cursor-type . box)
-	(cursor-color . "#00ff00")
-	)
-      )
 (set-cursor-color "#ffffff")
-(setq initial-frame-alist '((top . 0) (left . 30)))
 
 (setq
  default-directory "~/"
