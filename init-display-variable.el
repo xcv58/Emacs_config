@@ -40,6 +40,7 @@
 
 
 (column-number-mode t)
+(size-indication-mode t)
 (setq backup-directory-alist `(("." . "~/.saves-emacs")))
 
 ;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))

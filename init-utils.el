@@ -21,8 +21,8 @@
   (while (string-match "\\*.*\\*" (buffer-name))
       (previous-buffer)))
 
-(global-set-key (kbd "C-<tab>") 'my-next-buffer)
-(global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
+(global-set-key (kbd "C-S-<tab>") 'my-next-buffer)
+(global-set-key (kbd "C-<tab>") 'my-previous-buffer)
 
 
 ;;----------------------------------------------------------------------------
