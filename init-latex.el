@@ -1,7 +1,18 @@
 (require-package 'auctex)
-(require-package 'latex-pretty-symbols)
 
+(require-package 'latex-pretty-symbols)
 (require 'latex-pretty-symbols)
+
+(require-package 'auctex-latexmk)
+(add-hook 'LaTeX-mode-hook (lambda ()
+  (push 
+    '("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
+      :help "Run Latexmk on file")
+    TeX-command-list)))
+;; (setq TeX-command-default 'Latexmk)
+(add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "Latexmk")
+			    (auto-complete-mode t)))
+
 (when *is-a-mac*
   ;(message (getenv "PATH"))
   (getenv "PATH")
@@ -11,6 +22,7 @@
 	   (getenv "PATH")))
   ;(message (getenv "PATH"))
   )
+
 
 (setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
