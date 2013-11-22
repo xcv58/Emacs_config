@@ -1,3 +1,7 @@
+(require-package 'golden-ratio)
+(golden-ratio-mode t)
+
+
 (if window-system
     (load-theme 'twilight-anti-bright t)
   (load-theme 'manoj-dark t)

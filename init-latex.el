@@ -1,5 +1,7 @@
 (require-package 'auctex)
+(require-package 'latex-pretty-symbols)
 
+(require 'latex-pretty-symbols)
 (when *is-a-mac*
   ;(message (getenv "PATH"))
   (getenv "PATH")
