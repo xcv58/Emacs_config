@@ -4,15 +4,17 @@
 
 (if window-system
     (load-theme 'twilight-anti-bright t)
-  (load-theme 'manoj-dark t)
-  )
+  (load-theme 'manoj-dark t))
+
 (setq default-frame-alist
-      '((top . 200) (left . 400)
-	(width . 80) (height . 24)
+      '(
+	(top . 200)
+	(left . 400)
+	(width . 80)
+	(height . 24)
 	(cursor-type . box)
-	(cursor-color . "#00ff00")
-	)
-      )
+	(cursor-color . "#00ff00")))
+
 (setq initial-frame-alist '((top . 0) (left . 30)))
 
 (custom-set-variables
@@ -34,17 +36,15 @@
  vc-follow-symlinks t
  display-time-24hr-format t
  display-time-day-and-date t
-)
+ )
 
 ;;; bracket
 (show-paren-mode t)
 
-
-
-
-
 (column-number-mode t)
+
 (size-indication-mode t)
+
 (setq backup-directory-alist `(("." . "~/.saves-emacs")))
 
 ;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))

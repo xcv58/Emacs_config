@@ -58,5 +58,3 @@
 
 ;;; Show startup time
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
-
-

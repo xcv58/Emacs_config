@@ -4,33 +4,29 @@
 (require 'latex-pretty-symbols)
 
 (require-package 'auctex-latexmk)
-(add-hook 'LaTeX-mode-hook (lambda ()
-  (push 
-    '("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
-      :help "Run Latexmk on file")
-    TeX-command-list)))
-;; (setq TeX-command-default 'Latexmk)
-(add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "Latexmk")
-			    (auto-complete-mode t)))
+(add-hook 'TeX-mode-hook
+	  '(lambda () 
+	     (push 
+	      '("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
+		:help "Run Latexmk on file")
+	      TeX-command-list)
+	     (setq TeX-command-default "Latexmk")
+	     (auto-complete-mode t)))
 
 (when *is-a-mac*
-  ;(message (getenv "PATH"))
   (getenv "PATH")
   (setenv "PATH"
 	  (concat
 	   "/usr/texbin" ":"
-	   (getenv "PATH")))
-  ;(message (getenv "PATH"))
-  )
+	   (getenv "PATH"))))
 
 
+(setq-default TeX-master nil)
 (setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
-(setq-default TeX-master nil)
-
-(setq TeX-PDF-mode t)
 (setq TeX-save-query nil)
+
 (setq TeX-view-program-selection
       '(((output-dvi style-pstricks)
          "dvips and PDF Viewer")
@@ -41,15 +37,5 @@
       '(("dvips and PDF Viewer" "%(o?)dvips %d -o && open %f")
         ("PDF Viewer" "open %o")
         ("Safari" "open %o")))
-
-;(eval-after-load 'latex (auto-complete-mode 1))
-;(eval-after-load 'tex (ac-config-default))
-;(add-hook 'prog-mode-hook #'auto-complete-mode)
-;(defun open-auto-complete ()
-;   (auto-complete-mode 1))
-;(add-hook 'tex-mode-hook 'open-auto-complete)
-;(add-hook 'prog-mode-hook 'turn-on-auto-fill)
-
-
 
 (provide 'init-latex)
