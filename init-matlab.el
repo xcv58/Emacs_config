@@ -11,7 +11,7 @@
 (defun my-matlab-mode-hook ()
   (auto-complete-mode 1)
   ;; (auto-complete-mode t)
-  (setq fill-column 76)
+  (setq fill-column 99)
   )		; where auto-fill should wrap
 
 (add-hook 'matlab-mode-hook 'my-matlab-mode-hook)
