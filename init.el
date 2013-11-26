@@ -35,6 +35,7 @@
 (require 'init-auto-complete)
 (require 'init-matlab)
 (require 'init-ibuffer)
+(require 'init-iedit)
 
 
 (require 'init-vc)
