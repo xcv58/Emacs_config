@@ -11,10 +11,12 @@ After clone:
 
 You can move Emacs_config to ~/.emacs.d
 
+```
 mv Emacs_config ~/.emacs.d
-
+```
 or
-
+```
 ln -s Emacs_config ~/.emacs.d
+```
 
 And enjoy!
