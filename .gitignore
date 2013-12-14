@@ -20,7 +20,7 @@ cookies
 /ac-comphist.dat
 \#*
 /elpa
-site-lisp/package/
+# site-lisp/package/
 /swank
 /.mc-lists.el
 /var
