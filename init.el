@@ -39,7 +39,7 @@
 (require 'init-yasnippet)
 
 
-(require 'init-vc)
+;(require 'init-vc)
 (require 'init-isearch)
 
 ;;----------------------------------------------------------------------------
