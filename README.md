@@ -1,4 +1,4 @@
-Emacs_config
+Emacs config
 ========
 
 If you have your own ~/.emacs.d directory.
@@ -9,7 +9,7 @@ Please backup your configuration.
 After clone:
 ========
 
-You can move Emacs_config to ~/.emacs.d
+You can move Emacs\_config to ~/.emacs.d
 
 ```
 mv Emacs_config ~/.emacs.d
