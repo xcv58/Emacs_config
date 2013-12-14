@@ -1,0 +1,4 @@
+ls
+cd ~/.emacs.d/
+ls
+exit
