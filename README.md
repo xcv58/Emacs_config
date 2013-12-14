@@ -1,12 +1,13 @@
 Emacs_config
 ============
 
-* If you have your own ~/.emacs.d directory.
-
-Please backup your configuration.
+If you have your own ~/.emacs.d directory.
 ---------------------------------
 
-* After clone:
+Please backup your configuration.
+
+After clone:
+---------------------------------
 
 You can move Emacs_config to ~/.emacs.d
 
