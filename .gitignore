@@ -4,6 +4,7 @@
 /auto-save-list
 /.session
 /custom.el
+/eshell
 *.elc
 CVS
 .svn
