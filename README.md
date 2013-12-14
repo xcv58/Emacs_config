@@ -1,5 +1,6 @@
 Emacs config
 ========
+Only work on Emacs 24 and later!
 
 If you have your own ~/.emacs.d directory.
 ========
