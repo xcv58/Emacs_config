@@ -9,6 +9,8 @@ If you have your own ~/.emacs.d directory.
 
 Please backup your configuration.
 
+Attention: the init file of this configuration is NOT /.emacs or ~/.emacs.el. If you have one of them please remove/rename it.
+
 After clone:
 ========
 
