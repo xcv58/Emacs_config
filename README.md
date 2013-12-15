@@ -2,6 +2,8 @@ Emacs config
 ========
 Only work on Emacs 24 and later!
 
+I just test on OS X Version 10.9 and Ubuntu 13.10 x64.
+
 If you have your own ~/.emacs.d directory.
 ========
 
