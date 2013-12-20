@@ -7,19 +7,35 @@
 ;;----------------------------------------------------------------------------
 ;; Key to switch between tabs, 
 ;;----------------------------------------------------------------------------
+(setq skippable-buffers '("*Messages*" "*scratch*" "*Help*"))
+
 (defun my-next-buffer ()
-  "next-buffer, skip all *.**"
+  "next-buffer that skips certain buffers"
   (interactive)
   (next-buffer)
-  (while (string-match "\\*.*\\*" (buffer-name))
+  (while (member (buffer-name) skippable-buffers)
     (next-buffer)))
 
 (defun my-previous-buffer ()
-  "previous-buffer, skip all *.**"
+  "previous-buffer that skips certain buffers"
   (interactive)
   (previous-buffer)
-  (while (string-match "\\*.*\\*" (buffer-name))
+  (while (member (buffer-name) skippable-buffers)
     (previous-buffer)))
+
+; (defun my-next-buffer ()
+;   "next-buffer, skip all *.**"
+;   (interactive)
+;   (next-buffer)
+;   (while (string-match "\\*.*\\*" (buffer-name))
+;     (next-buffer)))
+; 
+; (defun my-previous-buffer ()
+;   "previous-buffer, skip all *.**"
+;   (interactive)
+;   (previous-buffer)
+;   (while (string-match "\\*.*\\*" (buffer-name))
+;     (previous-buffer)))
 
 (global-set-key (kbd "C-<tab>") 'my-next-buffer)
 (global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
