@@ -1,12 +1,15 @@
+;;; Automatic resize windows
 (require-package 'golden-ratio)
 (golden-ratio-mode t)
 
 
+;;; Theme
 (require-package 'twilight-anti-bright-theme)
 (if window-system
     (load-theme 'twilight-anti-bright t))
 ;  (load-theme 'manoj-dark t))
 
+;;; Default position
 (setq default-frame-alist
       '(
 	(top . 200)
@@ -42,6 +45,7 @@
 
 ;; (set-frame-font "Monaco-28")
 
+;;; Default cursor color
 (set-cursor-color "#ffffff")
 
 (setq
