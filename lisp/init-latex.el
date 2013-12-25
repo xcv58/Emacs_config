@@ -19,6 +19,7 @@
 	  (concat
 	   "/usr/texbin" ":"
 	   (getenv "PATH"))))
+(setq exec-path (append exec-path '("/usr/local/bin")))
 
 
 (setq-default TeX-master nil)
