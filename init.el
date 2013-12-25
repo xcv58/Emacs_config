@@ -47,6 +47,7 @@
 (require 'init-iedit)
 (require 'init-yasnippet)
 (require 'init-slime)
+(require 'init-w3)
 
 
 ;(require 'init-vc)
