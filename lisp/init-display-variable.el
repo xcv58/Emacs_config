@@ -5,9 +5,10 @@
 
 ;;; Theme
 (require-package 'twilight-anti-bright-theme)
-(if window-system
-    (load-theme 'twilight-anti-bright t))
+;(if window-system
+;    (load-theme 'twilight-anti-bright t))
 ;  (load-theme 'manoj-dark t))
+(load-theme 'twilight-anti-bright t)
 
 ;;; Default position
 (setq default-frame-alist
