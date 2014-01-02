@@ -58,6 +58,7 @@
  display-time-24hr-format t
  display-time-day-and-date t
  )
+(blink-cursor-mode t)
 
 ;;; bracket
 (show-paren-mode t)
