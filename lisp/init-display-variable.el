@@ -93,6 +93,7 @@
 (add-to-list 'sml/hidden-modes " Anzu")
 (add-to-list 'sml/hidden-modes " Golden")
 (add-to-list 'sml/hidden-modes " Undo-Tree")
+(add-to-list 'sml/hidden-modes " SP")
 (add-to-list 'sml/replacer-regexp-list '("^~.*/Work/" ":Work:"))
 ; (add-to-list 'sml/hidden-modes " Gtags")
 ; (add-to-list 'sml/hidden-modes " Abbrev")
