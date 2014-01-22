@@ -51,6 +51,7 @@
 (require 'init-yasnippet)
 (require 'init-slime)
 (require 'init-w3)
+(require 'init-smartparens)
 
 
 ;(require 'init-vc)
