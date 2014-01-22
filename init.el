@@ -52,6 +52,7 @@
 (require 'init-slime)
 (require 'init-w3)
 (require 'init-smartparens)
+(require 'init-expand-region)
 
 
 ;(require 'init-vc)
