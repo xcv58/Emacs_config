@@ -57,6 +57,7 @@
 
 ;(require 'init-vc)
 (require 'init-isearch)
+(require 'init-cedet)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
