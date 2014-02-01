@@ -53,11 +53,13 @@
 (require 'init-w3)
 (require 'init-smartparens)
 (require 'init-expand-region)
+(require 'init-hide-show)
 
 
 ;(require 'init-vc)
 (require 'init-isearch)
 (require 'init-cedet)
+(require 'init-ecb)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
@@ -77,3 +79,5 @@
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+
+
