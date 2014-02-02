@@ -60,6 +60,7 @@
 (require 'init-isearch)
 (require 'init-cedet)
 (require 'init-ecb)
+(require 'init-ascope)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
