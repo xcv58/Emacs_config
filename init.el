@@ -53,7 +53,6 @@
 (require 'init-w3)
 (require 'init-smartparens)
 (require 'init-expand-region)
-(require 'init-hide-show)
 
 
 ;(require 'init-vc)
