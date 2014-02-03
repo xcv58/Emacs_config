@@ -46,6 +46,9 @@
 
 ;; (set-frame-font "Monaco-28")
 
+;; make useless whitespace visible
+(setq-default show-trailing-whitespace t)
+
 ;;; Default cursor color
 (set-cursor-color "#ffffff")
 
