@@ -45,6 +45,8 @@
 (require 'init-dired)               ;; Directory display and operation
 (require 'init-ido)                 ;; InteractivelyDoThings
 (require 'init-auto-complete)
+(require 'init-helm)
+(require 'init-company)
 (require 'init-matlab)
 (require 'init-ibuffer)
 (require 'init-iedit)
