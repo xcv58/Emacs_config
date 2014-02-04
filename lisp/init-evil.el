@@ -1,5 +1,8 @@
 (require-package 'evil)
 (require-package 'evil-leader)
+(require-package 'evil-matchit)
+;; (require 'evil-matchit)
+(global-evil-matchit-mode 1)
 
 (evil-mode 1)
 (setq evil-default-cursor t)
