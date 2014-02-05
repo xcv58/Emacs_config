@@ -5,12 +5,17 @@
      '(progn ,@body)))
 
 ;;----------------------------------------------------------------------------
+;; Default open
+;;----------------------------------------------------------------------------
+(add-hook 'org-mode-hook 'toggle-truncate-lines t)
+
+;;----------------------------------------------------------------------------
 ;; C-x C-k to kill-this-buffer
 ;;----------------------------------------------------------------------------
 (global-set-key [(control x) (control k)] 'kill-this-buffer)
 
 ;;----------------------------------------------------------------------------
-;; Key to switch between tabs, 
+;; Key to switch between tabs,
 ;;----------------------------------------------------------------------------
 (setq skippable-buffers '("*Messages*" "*scratch*" "*Help*"))
 
@@ -34,7 +39,7 @@
 ;   (next-buffer)
 ;   (while (string-match "\\*.*\\*" (buffer-name))
 ;     (next-buffer)))
-; 
+;
 ; (defun my-previous-buffer ()
 ;   "previous-buffer, skip all *.**"
 ;   (interactive)
@@ -49,8 +54,8 @@
 ;;----------------------------------------------------------------------------
 ;; Enable uniquify buffer name
 ;;----------------------------------------------------------------------------
-(require 'uniquify) 
-(setq 
+(require 'uniquify)
+(setq
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
 
