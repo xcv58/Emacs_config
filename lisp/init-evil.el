@@ -25,6 +25,7 @@
 (add-hook 'c-mode-hook 'hs-minor-mode)
 (define-key evil-normal-state-map "zh" 'hs-hide-all-comments)
 (define-key evil-insert-state-map "\C-e" 'evil-end-of-visual-line)
+(define-key evil-insert-state-map "\C-y" 'yank)
 
 (defun hs-hide-all-comments ()
   "Hide all top level blocks, if they are comments, displaying only first line.
