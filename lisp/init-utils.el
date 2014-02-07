@@ -15,6 +15,11 @@
 (setq mac-command-modifier 'control)
 
 ;;----------------------------------------------------------------------------
+;; Set C-return to toggle fullscreen
+;;----------------------------------------------------------------------------
+(global-set-key (kbd "C-<return>") 'toggle-frame-fullscreen)
+
+;;----------------------------------------------------------------------------
 ;; C-x C-k to kill-this-buffer
 ;;----------------------------------------------------------------------------
 (global-set-key [(control x) (control k)] 'kill-this-buffer)
