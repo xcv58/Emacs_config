@@ -62,6 +62,7 @@
 (require 'init-cedet)
 (require 'init-ecb)
 (require 'init-ascope)
+(require 'init-etags)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
