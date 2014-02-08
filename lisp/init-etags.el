@@ -30,7 +30,11 @@ not visiting a file"
 a file named 'TAGS'. If found, set 'tags-table-list' with that path as an argument
 otherwise raises an error."
   (interactive)
-  (when (buffer-file-name) (setq tags-table-list (cons (jds-find-tags-file) tags-table-list))))
+  (when (buffer-file-name)
+    (unless tags-table-list
+      (setq tags-table-list
+	    (cons (jds-find-tags-file)
+		  tags-table-list)))))
 
 (add-hook 'c-mode-hook
 	  '(lambda() (jds-set-tags-file-path)))
@@ -59,7 +63,7 @@ otherwise raises an error."
       (error "buffer is not visiting a file")))
   )
 
-(defun smart-create-tags ()
+(defun smart-create/build/make/update-tags ()
   (interactive)
   (eshell-command
    (find-tags-sh-file)))
