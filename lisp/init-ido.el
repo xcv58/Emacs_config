@@ -1,4 +1,5 @@
 (require-package 'ido-vertical-mode)
+(require-package 'ido-hacks)
 
 ;; Use C-f during file selection to switch to regular find-file
 (ido-mode t)

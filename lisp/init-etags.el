@@ -37,13 +37,3 @@ otherwise raises an error."
 	  '(lambda () (jds-set-tags-file-path)))
 
 (provide 'init-etags)
-
-
-
-
-
-
-
-
-
-
