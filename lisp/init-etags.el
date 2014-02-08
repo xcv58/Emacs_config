@@ -33,7 +33,7 @@ otherwise raises an error."
 	  '(lambda() (jds-set-tags-file-path)))
 
 ;; delay search the TAGS file after open the source file
-(add-hook 'emacs-startup-hook
-	  '(lambda () (jds-set-tags-file-path)))
+;; (add-hook 'emacs-startup-hook
+;; 	  '(lambda () (jds-set-tags-file-path)))
 
 (provide 'init-etags)
