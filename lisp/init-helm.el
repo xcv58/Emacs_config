@@ -1,5 +1,5 @@
 (require-package 'helm)
 
-(helm-mode t)
+(helm-mode 0)
 
 (provide 'init-helm)
