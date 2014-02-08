@@ -30,7 +30,7 @@ not visiting a file"
 a file named 'TAGS'. If found, set 'tags-table-list' with that path as an argument
 otherwise raises an error."
   (interactive)
-  (setq tags-table-list (cons (jds-find-tags-file) tags-table-list)))
+  (when (buffer-file-name) (setq tags-table-list (cons (jds-find-tags-file) tags-table-list))))
 
 (add-hook 'c-mode-hook
 	  '(lambda() (jds-set-tags-file-path)))
