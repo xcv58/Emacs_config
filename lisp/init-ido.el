@@ -7,9 +7,17 @@
 (ido-vertical-mode t)
 (setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
 (setq ido-enable-flex-matching t)
-(setq ido-use-filename-at-point nil)
+(setq ido-enable-prefix t)
+(setq ido-create-new-buffer 'always)
+(setq ido-use-filename-at-point 'guess)
 (setq ido-auto-merge-work-directories-length 0)
 (setq ido-use-virtual-buffers t)
+
+(require-package 'flx-ido)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
+(setq gc-cons-threshold 64000000)
 
 (when (eval-when-compile (>= emacs-major-version 24))
  (require-package 'ido-ubiquitous)
