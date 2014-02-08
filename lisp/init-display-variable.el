@@ -72,6 +72,9 @@
 
 (setq backup-directory-alist `(("." . "~/.saves-emacs")))
 
+;;; set size of recent items
+(setq recentf-max-saved-items 100)
+
 (setq system-uses-terminfo nil)
 ;;; opacity
 ;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))
