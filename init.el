@@ -63,6 +63,7 @@
 (require 'init-ecb)
 (require 'init-ascope)
 (require 'init-etags)
+(require 'init-ag)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
