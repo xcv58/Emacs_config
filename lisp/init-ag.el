@@ -4,4 +4,6 @@
 
 (setq ag-highlight-search t)
 
+(global-set-key (kbd "C-x C-g") 'ag-project-regexp)
+
 (provide 'init-ag)
