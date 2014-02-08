@@ -20,6 +20,16 @@
 (global-set-key (kbd "C-<return>") 'toggle-frame-fullscreen)
 
 ;;----------------------------------------------------------------------------
+;; Copy current buffer file name as kill
+;;----------------------------------------------------------------------------
+(global-set-key (kbd "C-c C-f") 'copy-current-buffer-filename-as-kill)
+
+(defun copy-current-buffer-filename-as-kill ()
+  (interactive)
+  (when (buffer-file-name) (kill-new (buffer-file-name)))
+	(message "%s" (buffer-file-name)))
+
+;;----------------------------------------------------------------------------
 ;; C-x C-k to kill-this-buffer
 ;;----------------------------------------------------------------------------
 (global-set-key [(control x) (control k)] 'kill-this-buffer)
