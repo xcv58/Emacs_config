@@ -13,20 +13,23 @@
 ;;; Default position
 (setq default-frame-alist
       '(
-	(top . 200)
-	(left . 400)
-	(width . 80)
-	(height . 24)
+	;; (top . 200)
+	;; (left . 400)
+	;; (width . 80)
+	;; (height . 24)
 	(cursor-type . box)
 	(cursor-color . "#00ff00")))
 
-(setq initial-frame-alist '((top . 0) (left . 30)))
+;; (setq initial-frame-alist '((top . 0) (left . 30)))
+
+;;; Default Fullscreen
+(require-package 'maxframe)
+(add-hook 'window-setup-hook 'maximize-frame t)
+(add-hook 'after-make-frame-functions 'maximize-frame t)
+
+;;; Disable tool bar
 (custom-set-variables
-; (custom-enabled-themes (quote ("twilight-anti-bright" default)))
- '(tool-bar-mode nil)
- ;'(cursor-color "#52676f")
- )
-;(set-cursor-color "#00ff00") 
+ '(tool-bar-mode nil))
 
 (when (eq system-type 'darwin)
   ;; default Latin font (e.g. Consolas)
@@ -35,7 +38,7 @@
   ;;
   ;; WARNING!  Depending on the default font,
   ;; if the size is not supported very well, the frame will be clipped
-  ;; so that the beginning of the buffer may not be visible correctly. 
+  ;; so that the beginning of the buffer may not be visible correctly.
   (set-face-attribute 'default nil :height 300)
   ;; use specific font for Korean charset.
   ;; if you want to use different font size for specific charset,
@@ -111,8 +114,8 @@
 ;;----------------------------------------------------------------------------
 ;; Enable uniquify buffer name
 ;;----------------------------------------------------------------------------
-(require 'uniquify) 
-(setq 
+(require 'uniquify)
+(setq
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
 
