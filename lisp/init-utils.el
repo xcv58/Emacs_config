@@ -30,6 +30,14 @@
 	(message "%s" (buffer-file-name)))
 
 ;;----------------------------------------------------------------------------
+;; Key Bind C-s and C-r to regex search, C-M-s and C-M-r to normal search
+;;----------------------------------------------------------------------------
+(global-set-key (kbd "C-s") 'isearch-forward-regexp)
+(global-set-key (kbd "C-r") 'isearch-backward-regexp)
+(global-set-key (kbd "C-M-s") 'isearch-forward)
+(global-set-key (kbd "C-M-r") 'isearch-backward)
+
+;;----------------------------------------------------------------------------
 ;; C-x C-k to kill-this-buffer
 ;;----------------------------------------------------------------------------
 (global-set-key [(control x) (control k)] 'kill-this-buffer)
