@@ -38,6 +38,7 @@
 ;; Features
 ;;----------------------------------------------------------------------------
 (require 'init-evil)
+(require 'init-kill-ring)
 
 
 (require 'init-display-variable)             ;; Config about theme and font and variable
