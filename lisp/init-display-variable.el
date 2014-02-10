@@ -22,6 +22,10 @@
 
 ;; (setq initial-frame-alist '((top . 0) (left . 30)))
 
+
+;;; Disable scroll bar
+(scroll-bar-mode -1)
+
 ;;; Default Fullscreen
 (require-package 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
