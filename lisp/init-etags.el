@@ -31,7 +31,7 @@ a file named 'TAGS'. If found, set 'tags-table-list' with that path as an argume
 otherwise raises an error."
   (interactive)
   (when (buffer-file-name)
-    (unless tags-table-list
+    (unless (member (jds-find-tags-file) tags-table-list)
       (setq tags-table-list
 	    (cons (jds-find-tags-file)
 		  tags-table-list)))))
