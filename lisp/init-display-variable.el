@@ -83,11 +83,35 @@
 (setq recentf-max-saved-items 100)
 
 (setq system-uses-terminfo nil)
-;;; opacity
-;;(set-frame-parameter (selected-frame) 'alpha '(<active> [<inactive>]))
-(set-frame-parameter (selected-frame) 'alpha '(80 64))
-(add-to-list 'default-frame-alist '(alpha 80 64))
 
+;;; Set opacity transparency
+(defvar default-transparency '(80 64))
+(set-frame-parameter (selected-frame) 'alpha default-transparency)
+(add-to-list 'default-frame-alist (cons 'alpha default-transparency))
+
+(eval-when-compile (require 'cl))
+(defun toggle-transparency ()
+  (interactive)
+  (if (/=
+       (cadr (frame-parameter nil 'alpha))
+       100)
+      (set-frame-parameter nil 'alpha '(100 100))
+    (set-frame-parameter nil 'alpha default-transparency)))
+
+(defun transparency (value)
+  "Sets the transparency of the frame window.\nInput a number no large than 100 means directly set the active transparency value.\nInput a number large than 100 means:\n  set (/ number 100) as active transparency value,\n  set (mod number 100) as inactive transparency number."
+  (interactive "nTransparency value:" )
+  (let ((transparency-value
+	 (if (> value 100)
+	     (list (/ value 100) (mod value 100))
+	   (cons value (cdr (frame-parameter nil 'alpha))))))
+    (message "%s" transparency-value)
+    (set-frame-parameter (selected-frame) 'alpha transparency-value)))
+
+(global-set-key (kbd "C-c C-t") 'toggle-transparency)
+(global-set-key (kbd "C-c t") 'transparency)
+
+;;; Initial message
 (setq-default initial-scratch-message
               (concat ";; Emacs is ready for you: " (or user-login-name "") "!\n\n"))
               ;(concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
