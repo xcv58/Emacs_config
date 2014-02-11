@@ -13,7 +13,7 @@
 ;;----------------------------------------------------------------------------
 ;; Default hide initial comment block
 ;;----------------------------------------------------------------------------
-(add-hook 'mode-hook 'hs-hide-initial-comment-block)
+(add-hook 'c-mode-hook 'hs-hide-initial-comment-block)
 
 ;;----------------------------------------------------------------------------
 ;; Set command key as control
