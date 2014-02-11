@@ -1,12 +1,12 @@
 (require-package 'auctex)
 
-(require-package 'latex-pretty-symbols)
-(require 'latex-pretty-symbols)
+;; (require-package 'latex-pretty-symbols)
+;; (require 'latex-pretty-symbols)
 
 (require-package 'auctex-latexmk)
 (add-hook 'TeX-mode-hook
-	  '(lambda () 
-	     (push 
+	  '(lambda ()
+	     (push
 	      '("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
 		:help "Run Latexmk on file")
 	      TeX-command-list)
