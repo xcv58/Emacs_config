@@ -54,18 +54,22 @@ otherwise raises an error."
 	     (possible-tags-file (concat parent "tags.sh")))
 	(cond
 	 ((file-exists-p possible-tags-file) (throw 'found-it possible-tags-file))
-	 ((string= "/tags.sh" possible-tags-file) (error "no tags.sh file found"))
+	 ((string= "/tags.sh" possible-tags-file) (message "no tags.sh file found") (throw 'found-it nil))
 	 (t (find-tags-sh-file-r (directory-file-name parent))))))
-
     (if (buffer-file-name)
         (catch 'found-it
           (find-tags-sh-file-r (buffer-file-name)))
-      (error "buffer is not visiting a file")))
-  )
+      (error "buffer is not visiting a file"))))
 
 (defun smart-create/build/make/update-tags ()
   (interactive)
-  (eshell-command
-   (find-tags-sh-file)))
+  (let ((script-file (find-tags-sh-file)))
+    (if script-file
+	(let ((command (format "%s %s" "sh" (find-tags-sh-file))))
+	  (message "Run \"%s\"" command)
+	  (eshell-command command)
+	  (if (file-exists-p (message (replace-regexp-in-string "tags\.sh" "TAGS" script-file)))
+	      (message "Building TAGS succeed!") (message "Building TAGS fail!")))
+      (message "No tags.sh file found"))))
 
 (provide 'init-etags)
