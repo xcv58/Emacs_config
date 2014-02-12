@@ -115,8 +115,8 @@
     (message "%s" transparency-value)
     (set-frame-parameter (selected-frame) 'alpha transparency-value)))
 
-(global-set-key (kbd "C-c C-t") 'toggle-transparency)
-(global-set-key (kbd "C-c t") 'transparency)
+(global-set-key (kbd "C-c t") 'toggle-transparency)
+(global-set-key (kbd "C-c c t") 'transparency)
 
 ;;; Initial message
 (setq-default initial-scratch-message
