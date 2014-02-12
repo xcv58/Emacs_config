@@ -78,6 +78,17 @@
 (size-indication-mode t)
 
 (setq backup-directory-alist `(("." . "~/.saves-emacs")))
+(setq make-backup-files t)
+(setq backup-by-copying t)
+(setq backup-by-copying t)
+(setq backup-by-copying-when-mismatch t)
+(setq backup-by-copying-when-linked t)
+(setq version-control t)
+(setq-default delete-old-versions t)
+
+(require-package 'auto-save-buffers-enhanced)
+(require 'auto-save-buffers-enhanced)
+(auto-save-buffers-enhanced t)
 
 ;;; set size of recent items
 (setq recentf-max-saved-items 100)
