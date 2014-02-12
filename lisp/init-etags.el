@@ -11,18 +11,9 @@
 path to that file or nil if a tags file is not found. Returns nil if the buffer is
 not visiting a file"
   (progn
-      (defun find-tags-file-r (path)
-         "find the tags file from the parent directories"
-         (let* ((parent (file-name-directory path))
-                (possible-tags-file (concat parent "TAGS")))
-           (cond
-             ((file-exists-p possible-tags-file) (throw 'found-it possible-tags-file))
-             ((string= "/TAGS" possible-tags-file) (error "no tags file found"))
-             (t (find-tags-file-r (directory-file-name parent))))))
-
     (if (buffer-file-name)
         (catch 'found-it
-          (find-tags-file-r (buffer-file-name)))
+          (find-file-r (buffer-file-name) "TAGS"))
         (error "buffer is not visiting a file"))))
 
 (defun jds-set-tags-file-path ()
@@ -45,20 +36,27 @@ otherwise raises an error."
 ;; delay search the TAGS file after open the source file
 ;; (add-hook 'emacs-startup-hook
 ;; 	  '(lambda () (jds-set-tags-file-path)))
+(defun find-file-r (path filename)
+      "find the tags file from the parent directories"
+      (let* ((parent (file-name-directory path))
+	     (possible-tags-file (concat parent filename)))
+	(cond
+	 ((file-exists-p possible-tags-file) (throw 'found-it possible-tags-file))
+	 ((string= (concat "/" filename) possible-tags-file) (message "no %s file found" filename) (throw 'found-it nil))
+	 (t (find-file-r (directory-file-name parent) filename)))))
 
 (defun find-tags-sh-file ()
   (progn
-    (defun find-tags-sh-file-r (path)
-      "find the tags file from the parent directories"
-      (let* ((parent (file-name-directory path))
-	     (possible-tags-file (concat parent "tags.sh")))
-	(cond
-	 ((file-exists-p possible-tags-file) (throw 'found-it possible-tags-file))
-	 ((string= "/tags.sh" possible-tags-file) (message "no tags.sh file found") (throw 'found-it nil))
-	 (t (find-tags-sh-file-r (directory-file-name parent))))))
     (if (buffer-file-name)
         (catch 'found-it
-          (find-tags-sh-file-r (buffer-file-name)))
+          (find-file-r (buffer-file-name) "tags.sh"))
+      (error "buffer is not visiting a file"))))
+
+(defun find-gitignore-file ()
+  (progn
+    (if (buffer-file-name)
+        (catch 'found-it
+          (find-file-r (buffer-file-name) ".gitignore"))
       (error "buffer is not visiting a file"))))
 
 (defun smart-create/build/make/update-tags ()
@@ -68,8 +66,8 @@ otherwise raises an error."
 	(let ((command (format "%s %s" "sh" (find-tags-sh-file))))
 	  (message "Run \"%s\"" command)
 	  (eshell-command command)
-	  (if (file-exists-p (message (replace-regexp-in-string "tags\.sh" "TAGS" script-file)))
-	      (message "Building TAGS succeed!") (message "Building TAGS fail!")))
+	  (if (jds-find-tags-file)
+	      (message "Successfully building TAGS: %s" (jds-find-tags-file))))
       (message "No tags.sh file found"))))
 
 (provide 'init-etags)
