@@ -86,10 +86,6 @@
 (setq version-control t)
 (setq-default delete-old-versions t)
 
-(require-package 'auto-save-buffers-enhanced)
-(require 'auto-save-buffers-enhanced)
-(auto-save-buffers-enhanced t)
-
 ;;; set size of recent items
 (setq recentf-max-saved-items 100)
 
