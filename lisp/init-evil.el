@@ -18,6 +18,7 @@
   "dj" 'dired-jump ;; open the dired from current file
   "k" 'kill-this-buffer
   "o" 'other-window
+  "v" 'visual-line-witout-end
   )
 
 ;; add hook hs-minor-mode for c-mode
@@ -26,6 +27,12 @@
 (define-key evil-normal-state-map "zh" 'hs-hide-all-comments)
 (define-key evil-insert-state-map "\C-e" 'evil-end-of-visual-line)
 (define-key evil-insert-state-map "\C-y" 'yank)
+
+(defun visual-line-witout-end ()
+  (interactive)
+  (evil-first-non-blank)
+  (evil-visual-char)
+  (evil-last-non-blank))
 
 (defun hs-hide-all-comments ()
   "Hide all top level blocks, if they are comments, displaying only first line.
