@@ -136,6 +136,7 @@
 (add-to-list 'sml/hidden-modes " AC")
 (add-to-list 'sml/hidden-modes " Anzu")
 (add-to-list 'sml/hidden-modes " Golden")
+(add-to-list 'sml/hidden-modes " company")
 (add-to-list 'sml/hidden-modes " Undo-Tree")
 (add-to-list 'sml/hidden-modes " SP")
 (add-to-list 'sml/replacer-regexp-list '("^~.*/Work/" ":Work:"))
