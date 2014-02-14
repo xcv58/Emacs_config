@@ -18,7 +18,7 @@
 	;; (width . 80)
 	;; (height . 24)
 	(cursor-type . box)
-	(cursor-color . "#00ff00")))
+	(cursor-color . "red")))
 
 ;; (setq initial-frame-alist '((top . 0) (left . 30)))
 
@@ -57,13 +57,13 @@
 (setq-default show-trailing-whitespace t)
 
 ;;; Default cursor color
-(set-cursor-color "#ffffff")
+;; (set-cursor-color "#ffffff")
 
 (setq
  default-directory "~/"
  inhibit-startup-message t
  ;; follow symlinks and don't ask
- blink-cursor-interval 1
+ blink-cursor-interval 1.5
  vc-follow-symlinks t
  display-time-24hr-format t
  display-time-day-and-date t
