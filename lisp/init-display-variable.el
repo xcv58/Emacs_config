@@ -37,7 +37,9 @@
 
 (when (eq system-type 'darwin)
   ;; default Latin font (e.g. Consolas)
-  (set-face-attribute 'default nil :family "Monaco")
+  ;; (set-face-attribute 'default nil :family "Monaco")
+  ;; (set-face-attribute 'default nil :family "Source-Code-Pro")
+  (set-face-attribute 'default nil :family "Inconsolata")
   ;; default font size (point * 10)
   ;;
   ;; WARNING!  Depending on the default font,
