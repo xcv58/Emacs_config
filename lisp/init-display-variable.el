@@ -49,7 +49,9 @@
   ;; use specific font for Korean charset.
   ;; if you want to use different font size for specific charset,
   ;; add :size POINT-SIZE in the font-spec.
-  (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
+  ;; (set-fontset-font t 'hangul (font-spec :name "NanumGothicCoding"))
+  (set-fontset-font t 'han (font-spec :family "Hiragino Sans GB" ))
+  ;; (set-fontset-font (frame-parameter nil 'font) 'han (font-spec :family "Hiragino Sans GB" ))
   ;; you may want to add different for other charset in this way.
   )
 
