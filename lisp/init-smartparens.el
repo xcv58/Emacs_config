@@ -13,5 +13,6 @@
 (define-key sp-keymap (kbd "M-e") 'sp-up-sexp)
 (define-key sp-keymap (kbd "M-b") 'sp-backward-sexp)
 (define-key sp-keymap (kbd "M-f") 'sp-forward-sexp)
+(define-key sp-keymap (kbd "C-c k") 'sp-kill-sexp)
 
 (provide 'init-smartparens)
