@@ -6,12 +6,14 @@
 (require-package 'auctex-latexmk)
 (add-hook 'TeX-mode-hook
 	  '(lambda ()
-	     (push
-	      '("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
-		:help "Run Latexmk on file")
-	      TeX-command-list)
-	     (setq TeX-command-default "Latexmk")
-	     (auto-complete-mode t)))
+	     (defvar Latexmk-Tex-command-list t)
+	     (unless Latexmk-Tex-command-list
+	       (push
+		'("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
+		  :help "Run Latexmk on file")
+		TeX-command-list)
+	       (setq TeX-command-default "Latexmk"))))
+(add-hook 'Tex-mode-hook 'auto-complete-mode)
 
 (when *is-a-mac*
   (getenv "PATH")
