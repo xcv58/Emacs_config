@@ -28,12 +28,24 @@
 ;;----------------------------------------------------------------------------
 ;; Copy current buffer file name as kill
 ;;----------------------------------------------------------------------------
-(global-set-key (kbd "C-c C-f") 'copy-current-buffer-filename-as-kill)
+(global-set-key (kbd "C-c p") 'copy-current-buffer-path-as-kill)
+(global-set-key (kbd "C-c f") 'copy-current-buffer-filename-as-kill)
+(global-set-key (kbd "C-c b") 'copy-current-buffer-filename-path-as-kill)
 
-(defun copy-current-buffer-filename-as-kill ()
+(defun copy-current-buffer-filename-path-as-kill ()
   (interactive)
   (when (buffer-file-name) (kill-new (buffer-file-name)))
 	(message "%s" (buffer-file-name)))
+
+(defun copy-current-buffer-filename-as-kill ()
+  (interactive)
+  (when (buffer-file-name) (kill-new (file-name-base buffer-file-name)))
+	(message "%s" (file-name-base buffer-file-name)))
+
+(defun copy-current-buffer-path-as-kill ()
+  (interactive)
+  (when (buffer-file-name) (kill-new (file-name-directory buffer-file-name)))
+	(message "%s" (file-name-directory buffer-file-name)))
 
 ;;----------------------------------------------------------------------------
 ;; Key Bind C-s and C-r to regex search, C-M-s and C-M-r to normal search
