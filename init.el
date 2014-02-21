@@ -65,6 +65,8 @@
 (require 'init-etags)
 (require 'init-ag)
 
+(require 'init-temp)
+
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
 ;;----------------------------------------------------------------------------
