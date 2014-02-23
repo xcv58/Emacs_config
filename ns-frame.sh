@@ -5,9 +5,11 @@ then
 else
     daemon=true
 fi
-if [ "$existNsFrame" == "" ]; then
+if [ "$existNsFrame" == "" ]
+then
     /usr/local/bin/emacs --daemon
 fi
-if [ "$existNsFrame" != "ns" ] && [ "$daemon" != "true" ]; then
+if [ "$existNsFrame" != "ns" ] && [ "$daemon" != "true" ]
+then
     /usr/local/bin/emacsclient -c -n
 fi
