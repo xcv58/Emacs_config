@@ -25,6 +25,7 @@
                          (string-match (expand-file-name "~/src/")
                                        filename))
                 (setq indent-tabs-mode t)
+		(whitespace-mode 1)
                 (c-set-style "linux-tabs-only")))))
 
 (provide 'init-temp)
