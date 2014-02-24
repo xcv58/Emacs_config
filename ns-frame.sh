@@ -1,9 +1,12 @@
 existNsFrame=$(/usr/local/bin/emacsclient -e "(exist-ns-frame)")
 if [ "$existNsFrame" == "" ]
 then
+    osascript <<EOF
+display notification with title "Open Emacs" subtitle "Please wait 3 seconds."
+EOF
     /usr/local/bin/emacs --daemon
 fi
-if [ "$existNsFrame" != "ns" ] && [ "$daemon" != "true" ]
+if [ "$existNsFrame" != "ns" ]
 then
     /usr/local/bin/emacsclient -c -n $*
     osascript <<FRONTMOST
