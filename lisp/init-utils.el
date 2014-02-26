@@ -104,6 +104,17 @@
 
 
 ;;----------------------------------------------------------------------------
+;; Switch between tab indent
+;;----------------------------------------------------------------------------
+(defun toggle-tab-indent ()
+  (interactive)
+  (if indent-tabs-mode
+      (setq indent-tabs-mode nil)
+    (setq indent-tabs-mode t))
+  (message "%s" indent-tabs-mode))
+
+
+;;----------------------------------------------------------------------------
 ;; Enable uniquify buffer name
 ;;----------------------------------------------------------------------------
 (require 'uniquify)
