@@ -103,11 +103,11 @@
 (eval-when-compile (require 'cl))
 (defun toggle-transparency ()
   (interactive)
-  (if (/=
-       (cadr (frame-parameter nil 'alpha))
-       100)
-      (set-frame-parameter nil 'alpha '(100 100))
-    (set-frame-parameter nil 'alpha default-transparency)))
+  (let ((alpha (frame-parameter nil 'alpha)))
+    (if (or (not alpha)
+            (= (car alpha) 100))
+        (set-frame-parameter nil 'alpha default-transparency)
+      (set-frame-parameter nil 'alpha '(100 100)))))
 
 (defun transparency (value)
   "Sets the transparency of the frame window.\nInput a number no large than 100 means directly set the active transparency value.\nInput a number large than 100 means:\n  set (/ number 100) as active transparency value,\n  set (mod number 100) as inactive transparency number."
@@ -115,7 +115,7 @@
   (let ((transparency-value
          (if (> value 100)
              (list (/ value 100) (mod value 100))
-           (cons value (cdr (frame-parameter nil 'alpha))))))
+           (cons (if (= value 0) 100 value) (cdr (frame-parameter nil 'alpha))))))
     (message "%s" transparency-value)
     (set-frame-parameter (selected-frame) 'alpha transparency-value)))
 

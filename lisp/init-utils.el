@@ -100,7 +100,7 @@
 
 (defun my-backward-buffer ()
   (interactive)
-  (switch-to-buffer (car (cdr (buffer-list)))))
+  (switch-to-buffer (cadr (buffer-list))))
 
 
 ;;----------------------------------------------------------------------------
