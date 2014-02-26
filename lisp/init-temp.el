@@ -1,9 +1,9 @@
 (defun c-lineup-arglist-tabs-only (ignored)
   "Line up argument lists by tabs, not spaces"
   (let* ((anchor (c-langelem-pos c-syntactic-element))
-	 (column (c-langelem-2nd-pos c-syntactic-element))
-	 (offset (- (1+ column) anchor))
-	 (steps (floor offset c-basic-offset)))
+         (column (c-langelem-2nd-pos c-syntactic-element))
+         (offset (- (1+ column) anchor))
+         (steps (floor offset c-basic-offset)))
     (* (max steps 1)
        c-basic-offset)))
 
@@ -17,6 +17,12 @@
                          c-lineup-gcc-asm-reg
                          c-lineup-arglist-tabs-only))))))
 
+(defun toggle-whitespace-linux-only ()
+  (interactive)
+  (if (and (boundp 'whitespace-mode) whitespace-mode)
+      (whitespace-mode 0)
+    (whitespace-toggle-options '(tab-mark face))))
+
 (add-hook 'c-mode-hook
           (lambda ()
             (let ((filename (buffer-file-name)))
@@ -25,7 +31,9 @@
                          (string-match (expand-file-name "~/src/")
                                        filename))
                 (setq indent-tabs-mode t)
-		(whitespace-mode 1)
+                (ethan-wspace-mode 0)
+                (whitespace-mode 0)
+                (toggle-whitespace-linux-only)
                 (c-set-style "linux-tabs-only")))))
 
 (provide 'init-temp)

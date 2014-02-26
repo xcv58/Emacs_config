@@ -55,6 +55,7 @@
 (require 'init-w3)
 (require 'init-smartparens)
 (require 'init-expand-region)
+(require 'init-whitespace)
 
 
 ;(require 'init-vc)
