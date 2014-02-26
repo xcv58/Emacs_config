@@ -13,12 +13,12 @@
 ;;; Default position
 (setq default-frame-alist
       '(
-	;; (top . 200)
-	;; (left . 400)
-	;; (width . 80)
-	;; (height . 24)
-	(cursor-type . box)
-	(cursor-color . "red")))
+        ;; (top . 200)
+        ;; (left . 400)
+        ;; (width . 80)
+        ;; (height . 24)
+        (cursor-type . box)
+        (cursor-color . "red")))
 
 ;; (setq initial-frame-alist '((top . 0) (left . 30)))
 
@@ -97,8 +97,8 @@
 
 ;;; Set opacity transparency
 (defvar default-transparency '(80 64))
-(set-frame-parameter (selected-frame) 'alpha default-transparency)
-(add-to-list 'default-frame-alist (cons 'alpha default-transparency))
+;; (set-frame-parameter (selected-frame) 'alpha default-transparency)
+;; (add-to-list 'default-frame-alist (cons 'alpha default-transparency))
 
 (eval-when-compile (require 'cl))
 (defun toggle-transparency ()
@@ -113,9 +113,9 @@
   "Sets the transparency of the frame window.\nInput a number no large than 100 means directly set the active transparency value.\nInput a number large than 100 means:\n  set (/ number 100) as active transparency value,\n  set (mod number 100) as inactive transparency number."
   (interactive "nTransparency value:" )
   (let ((transparency-value
-	 (if (> value 100)
-	     (list (/ value 100) (mod value 100))
-	   (cons value (cdr (frame-parameter nil 'alpha))))))
+         (if (> value 100)
+             (list (/ value 100) (mod value 100))
+           (cons value (cdr (frame-parameter nil 'alpha))))))
     (message "%s" transparency-value)
     (set-frame-parameter (selected-frame) 'alpha transparency-value)))
 
