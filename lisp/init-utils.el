@@ -93,8 +93,14 @@
 ;   (while (string-match "\\*.*\\*" (buffer-name))
 ;     (previous-buffer)))
 
-(global-set-key (kbd "C-<tab>") 'my-next-buffer)
+;; (global-set-key (kbd "C-<tab>") 'my-next-buffer)
 (global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
+
+(global-set-key (kbd "C-<tab>") 'my-backward-buffer)
+
+(defun my-backward-buffer ()
+  (interactive)
+  (switch-to-buffer (car (cdr (buffer-list)))))
 
 
 ;;----------------------------------------------------------------------------
