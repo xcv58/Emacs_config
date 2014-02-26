@@ -79,6 +79,10 @@
   (while (member (buffer-name) skippable-buffers)
     (previous-buffer)))
 
+(defun my-backward-buffer ()
+  (interactive)
+  (switch-to-buffer (cadr (buffer-list))))
+
 ; (defun my-next-buffer ()
 ;   "next-buffer, skip all *.**"
 ;   (interactive)
@@ -95,12 +99,8 @@
 
 ;; (global-set-key (kbd "C-<tab>") 'my-next-buffer)
 (global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
-
-(global-set-key (kbd "C-<tab>") 'my-backward-buffer)
-
-(defun my-backward-buffer ()
-  (interactive)
-  (switch-to-buffer (cadr (buffer-list))))
+(global-set-key (kbd "C-<tab>") 'my-next-buffer)
+(global-set-key [M-tab] 'my-backward-buffer)
 
 
 ;;----------------------------------------------------------------------------
