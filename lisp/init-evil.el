@@ -19,6 +19,7 @@
   "k" 'kill-this-buffer
   "o" 'other-window
   "v" 'visual-line-witout-end
+  "w" 'lookup-word-at-point
   )
 
 ;; add hook hs-minor-mode for c-mode

@@ -34,18 +34,21 @@
 
 (defun copy-current-buffer-filename-path-as-kill ()
   (interactive)
-  (when (buffer-file-name) (kill-new (buffer-file-name)))
-	(message "%s" (buffer-file-name)))
+  (when (buffer-file-name)
+    (kill-new (buffer-file-name)))
+  (message "%s" (buffer-file-name)))
 
 (defun copy-current-buffer-filename-as-kill ()
   (interactive)
-  (when (buffer-file-name) (kill-new (file-name-base buffer-file-name)))
-	(message "%s" (file-name-base buffer-file-name)))
+  (when (buffer-file-name)
+    (kill-new (file-name-base buffer-file-name)))
+  (message "%s" (file-name-base buffer-file-name)))
 
 (defun copy-current-buffer-path-as-kill ()
   (interactive)
-  (when (buffer-file-name) (kill-new (file-name-directory buffer-file-name)))
-	(message "%s" (file-name-directory buffer-file-name)))
+  (when (buffer-file-name)
+    (kill-new (file-name-directory buffer-file-name)))
+  (message "%s" (file-name-directory buffer-file-name)))
 
 ;;----------------------------------------------------------------------------
 ;; Key Bind C-s and C-r to regex search, C-M-s and C-M-r to normal search

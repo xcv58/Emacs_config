@@ -39,6 +39,7 @@
 ;;----------------------------------------------------------------------------
 (require 'init-evil)
 (require 'init-kill-ring)
+(require 'init-dict)
 
 
 (require 'init-display-variable)             ;; Config about theme and font and variable
@@ -86,6 +87,3 @@
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
-
-
-

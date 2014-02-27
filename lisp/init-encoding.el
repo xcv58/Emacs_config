@@ -19,5 +19,3 @@
 
 
 (provide 'init-encoding)
-
-
