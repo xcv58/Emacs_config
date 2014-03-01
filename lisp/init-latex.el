@@ -5,23 +5,23 @@
 
 (require-package 'auctex-latexmk)
 (add-hook 'TeX-mode-hook
-	  '(lambda ()
-	     (setq TeX-command-default "Latexmk")
-	     (auto-complete-mode t)
-	     (defvar Latexmk-Tex-command-list nil)
-	     (unless Latexmk-Tex-command-list
-	       (setq Latexmk-Tex-command-list t)
-	       (push
-		'("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
-		  :help "Run Latexmk on file")
-		TeX-command-list))))
+          '(lambda ()
+             (setq TeX-command-default "Latexmk")
+             (auto-complete-mode t)
+             (defvar Latexmk-Tex-command-list nil)
+             (unless Latexmk-Tex-command-list
+               (setq Latexmk-Tex-command-list t)
+               (push
+                '("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
+                  :help "Run Latexmk on file")
+                TeX-command-list))))
 
 (when *is-a-mac*
   (getenv "PATH")
   (setenv "PATH"
-	  (concat
-	   "/usr/texbin" ":"
-	   (getenv "PATH"))))
+          (concat
+           "/usr/texbin" ":"
+           (getenv "PATH"))))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
 
@@ -39,7 +39,7 @@
         (output-html "Safari")))
 (setq TeX-view-program-list
       '(("dvips and PDF Viewer" "%(o?)dvips %d -o && open %f")
-        ("PDF Viewer" "open %o")
+        ("PDF Viewer" "open -a skim %o")
         ("Safari" "open %o")))
 
 (provide 'init-latex)
