@@ -90,7 +90,7 @@
 (setq version-control t)
 (setq-default delete-old-versions t)
 
-;;; set size of recent items
+;;; set size of recent/history items
 (setq recentf-max-saved-items 1024)
 
 (setq system-uses-terminfo nil)
