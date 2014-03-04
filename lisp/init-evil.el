@@ -26,7 +26,7 @@
 ;; add func hs-hide-all-comments
 (add-hook 'c-mode-hook 'hs-minor-mode)
 (define-key evil-normal-state-map "zh" 'hs-hide-all-comments)
-(define-key evil-insert-state-map "\C-e" 'evil-end-of-visual-line)
+;; (define-key evil-insert-state-map "\C-e" 'evil-end-of-visual-line)
 (define-key evil-insert-state-map "\C-y" 'yank)
 
 (defun visual-line-witout-end ()

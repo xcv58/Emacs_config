@@ -12,7 +12,7 @@
              (unless Latexmk-Tex-command-list
                (setq Latexmk-Tex-command-list t)
                (push
-                '("Latexmk" "latexmk -pvc -pdf %s" TeX-run-TeX nil t
+                '("Latexmk" "latexmk -pvc -pdf -interaction=nonstopmode %s" TeX-run-TeX nil t
                   :help "Run Latexmk on file")
                 TeX-command-list))))
 
