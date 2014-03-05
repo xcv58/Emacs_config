@@ -20,8 +20,8 @@
 (setq gc-cons-threshold 64000000)
 
 (when (eval-when-compile (>= emacs-major-version 24))
- (require-package 'ido-ubiquitous)
- (ido-ubiquitous-mode t))
+  (require-package 'ido-ubiquitous)
+  (ido-ubiquitous-mode t))
 
 ;; Use smex to handle M-x
 (require-package 'smex)
@@ -33,15 +33,16 @@
 (setq ido-default-buffer-method 'selected-window)
 
 (when (eval-when-compile (< emacs-major-version 24))
- (defun sanityinc/ido-choose-from-recentf ()
-   "Use ido to select a recently opened file from the `recentf-list'"
-   (interactive)
-   (if (and ido-use-virtual-buffers (fboundp 'ido-toggle-virtual-buffers))
-       (ido-switch-buffer)
-     (find-file (ido-completing-read "Open file: " recentf-list nil t))))
+  (defun sanityinc/ido-choose-from-recentf ()
+    "Use ido to select a recently opened file from the `recentf-list'"
+    (interactive)
+    (if (and ido-use-virtual-buffers (fboundp 'ido-toggle-virtual-buffers))
+        (ido-switch-buffer)
+      (find-file (ido-completing-read "Open file: " recentf-list nil t))))
 
- (global-set-key [(meta f11)] 'sanityinc/ido-choose-from-recentf))
+  (global-set-key [(meta f11)] 'sanityinc/ido-choose-from-recentf))
 
-
+(global-set-key (kbd "C-S-b") 'ido-switch-buffer)
+(global-set-key (kbd "C-S-p") 'ido-switch-buffer)
 
 (provide 'init-ido)
