@@ -22,7 +22,9 @@
     (sp-next-sexp)
     (if (< line (line-number-at-pos))
         (progn (goto-char position)
-               (end-of-line)))))
+               (end-of-line))
+      (if (< (point) position)
+          (sp-next-sexp-without-cross-line)))))
 
 (defun end-of-this()
   (interactive)

@@ -22,6 +22,9 @@
   "w" 'lookup-word-at-point
   )
 
+;; remap 0 to evil-first-non-blank
+(evil-redirect-digit-argument evil-motion-state-map "0" 'evil-first-non-blank)
+(define-key evil-motion-state-map "^" 'evil-beginning-of-line)
 ;; add hook hs-minor-mode for c-mode
 ;; add func hs-hide-all-comments
 (add-hook 'c-mode-hook 'hs-minor-mode)
