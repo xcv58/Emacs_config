@@ -33,7 +33,6 @@
 (require 'init-encoding)
 
 
-
 ;;----------------------------------------------------------------------------
 ;; Features
 ;;----------------------------------------------------------------------------
@@ -41,8 +40,8 @@
 (require 'init-kill-ring)
 (require 'init-dict)
 
-
 (require 'init-display-variable)             ;; Config about theme and font and variable
+(require 'init-mode-line)
 (require 'init-smooth-scrolling)
 (require 'init-latex)
 (require 'init-dired)               ;; Directory display and operation
@@ -58,7 +57,6 @@
 (require 'init-smartparens)
 (require 'init-expand-region)
 (require 'init-whitespace)
-
 
 ;(require 'init-vc)
 (require 'init-isearch)
