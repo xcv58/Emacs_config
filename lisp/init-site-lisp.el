@@ -52,5 +52,27 @@ source file under ~/.emacs.d/site-lisp/name/"
    'package
    "http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el"))
 
+(defun eval-last-sexp (eval-last-sexp-arg-internal)
+  "Evaluate sexp before point; print value in minibuffer.
+Interactively, with prefix argument, print output into current buffer.
+Truncates long output according to the value of the variables
+`eval-expression-print-length' and `eval-expression-print-level'.
+
+If `eval-expression-debug-on-error' is non-nil, which is the default,
+this command arranges for all errors to enter the debugger."
+  (interactive "P")
+  (if (= (point) (line-beginning-position))
+      (evilmi-jump-items))
+  (if (< (point) (line-end-position))
+      (end-of-line))
+  (if (null eval-expression-debug-on-error)
+      (eval-last-sexp-1 eval-last-sexp-arg-internal)
+    (let ((value
+           (let ((debug-on-error eval-last-sexp-fake-value))
+             (cons (eval-last-sexp-1 eval-last-sexp-arg-internal)
+                   debug-on-error))))
+      (unless (eq (cdr value) eval-last-sexp-fake-value)
+        (setq debug-on-error (cdr value)))
+      (car value))))
 
 (provide 'init-site-lisp)
