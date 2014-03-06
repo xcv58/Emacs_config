@@ -43,6 +43,7 @@
 
 
 (require 'init-display-variable)             ;; Config about theme and font and variable
+(require 'init-smooth-scrolling)
 (require 'init-latex)
 (require 'init-dired)               ;; Directory display and operation
 (require 'init-ido)                 ;; InteractivelyDoThings
@@ -75,7 +76,6 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
-
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient

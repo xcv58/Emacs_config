@@ -1,6 +1,6 @@
 ;;; Automatic resize windows
-(require-package 'golden-ratio)
-(golden-ratio-mode t)
+;; (require-package 'golden-ratio)
+;; (golden-ratio-mode t)
 
 
 ;;; Theme
@@ -150,6 +150,12 @@
 ; (add-to-list 'sml/hidden-modes " Guide")
 (sml/setup)
 
+;; Turn off wrap lines
+(toggle-truncate-lines t)
+
+;; Slower mouse/trackpad sroll speed
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
+(setq mouse-wheel-progressive-speed nil)
 
 ;;----------------------------------------------------------------------------
 ;; Enable uniquify buffer name
