@@ -14,8 +14,6 @@
 
 (add-hook 'sublimity-map-setup-hook
           (lambda ()
-            (setq mode-line-format nil)
-            ;; (scroll-bar-mode 1)
-            ))
+            (setq mode-line-format nil)))
 
 (provide 'init-smooth-scrolling)
