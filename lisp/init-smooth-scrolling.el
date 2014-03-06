@@ -6,8 +6,8 @@
 
 (setq sublimity-scroll-weight 10
       sublimity-scroll-drift-length 5)
-(setq sublimity-map-size 16)
-(setq sublimity-map-fraction 0.4)
+(setq sublimity-map-size 28)
+(setq sublimity-map-fraction 0.5)
 (setq sublimity-map-on-scroll t)
 
 (sublimity-map-set-delay 10)
