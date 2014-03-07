@@ -21,7 +21,7 @@
   (interactive)
   (if (and (boundp 'whitespace-mode) whitespace-mode)
       (whitespace-mode 0)
-    (whitespace-toggle-options '(tab-mark face))))
+    (whitespace-toggle-options '(space-mark face))))
 
 (add-hook 'c-mode-hook
           (lambda ()
@@ -34,6 +34,7 @@
                 (ethan-wspace-mode 0)
                 (whitespace-mode 0)
                 (toggle-whitespace-linux-only)
+                (linum-mode 1)
                 (c-set-style "linux-tabs-only")))))
 
 (provide 'init-temp)
