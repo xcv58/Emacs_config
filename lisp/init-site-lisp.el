@@ -61,6 +61,7 @@ Truncates long output according to the value of the variables
 If `eval-expression-debug-on-error' is non-nil, which is the default,
 this command arranges for all errors to enter the debugger."
   (interactive "P")
+  (let ((point (point)))
   (if (= (point) (line-beginning-position))
       (evilmi-jump-items))
   (if (< (point) (line-end-position))
@@ -73,6 +74,7 @@ this command arranges for all errors to enter the debugger."
                    debug-on-error))))
       (unless (eq (cdr value) eval-last-sexp-fake-value)
         (setq debug-on-error (cdr value)))
-      (car value))))
+      (car value)))
+  (goto-char point)))
 
 (provide 'init-site-lisp)
