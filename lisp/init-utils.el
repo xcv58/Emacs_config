@@ -66,7 +66,8 @@
 ;;----------------------------------------------------------------------------
 ;; Key to switch between tabs,
 ;;----------------------------------------------------------------------------
-(setq skippable-buffers '("*Messages*" "*scratch*" "*Help*"))
+;; (setq skippable-buffers '("*Messages*" "*scratch*" "*Help*"))
+(setq skippable-buffers '("*scratch*" "*Messages*" "*Help*" " *code-conversion-work*" " *Minibuf-0*" " *Minibuf-1*" " *Echo Area 0*" " *Echo Area 1*" "*Backtrace*" "TAGS"))
 
 (defun my-next-buffer ()
   "next-buffer that skips certain buffers"
@@ -82,54 +83,34 @@
   (while (member (buffer-name) skippable-buffers)
     (previous-buffer)))
 
-;; (global-set-key (kbd "C-A") 'test)
-
-;; (defun recenter-top-bottom (&optional arg)
-;;   (interactive "P")
-;;   (cond
-;;    (arg (recenter arg))                      ; Always respect ARG.
-;;    (t
-;;     (setq recenter-last-op
-;;        (if (eq this-command last-command)
-;;            (car (or (cdr (member recenter-last-op recenter-positions))
-;;                     recenter-positions))
-;;          (car recenter-positions)))
-;;     (let ((this-scroll-margin
-;;         (min (max 0 scroll-margin)
-;;              (truncate (/ (window-body-height) 4.0)))))
-;;       (cond ((eq recenter-last-op 'middle)
-;;           (recenter))
-;;          ((eq recenter-last-op 'top)
-;;           (recenter this-scroll-margin))
-;;          ((eq recenter-last-op 'bottom)
-;;           (recenter (- -1 this-scroll-margin)))
-;;          ((integerp recenter-last-op)
-;;           (recenter recenter-last-op))
-;;          ((floatp recenter-last-op)
-;;           (recenter (round (* recenter-last-op (window-height))))))))))
-
 ;; (defun my-backward-buffer ()
 ;;   (interactive)
 ;;   (switch-to-buffer (cadr (buffer-list))))
 
-(defvar how-many-buffers 1)
-(defvar how-long-time 1)
+(defun remove-skippable-buffer (buffer-list)
+  (if buffer-list
+      (progn
+        (if (member (buffer-name (car buffer-list)) skippable-buffers)
+            (remove-skippable-buffer (cdr buffer-list))
+          (cons (car buffer-list) (remove-skippable-buffer (cdr buffer-list)))))))
+
+(defvar how-many-buffers 0)
+
 (defun my-backward-buffer ()
   (interactive)
-  (unless (and (eq this-command last-command)
-               (< (- (cadr (current-time)) 2) how-long-time))
+  (unless (eq this-command last-command)
     (setq how-many-buffers 0))
-  (setq how-many-buffers (+ 1 how-many-buffers))
   (setq how-long-time (cadr (current-time)))
-  (switch-to-buffer
-   (car (nthcdr
-         (% how-many-buffers (list-length (buffer-list)))
-         (buffer-list)))))
+  (let ((buffer-list (remove-skippable-buffer (buffer-list))))
+    (setq how-many-buffers
+          (+ 1 (% how-many-buffers (- (list-length buffer-list) 1))))
+    (message "%s, %s" (nth how-many-buffers buffer-list) (append (cdr (nthcdr how-many-buffers buffer-list)) (subseq buffer-list 0 how-many-buffers)))
+    (switch-to-buffer (nth how-many-buffers buffer-list))))
+
 ;; (global-set-key (kbd "C-<tab>") 'my-next-buffer)
 (global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
 (global-set-key (kbd "C-<tab>") 'my-next-buffer)
 (global-set-key [M-tab] 'my-backward-buffer)
-
 
 ;;----------------------------------------------------------------------------
 ;; Switch between tab indent
