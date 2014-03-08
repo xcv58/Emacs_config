@@ -82,24 +82,49 @@
   (while (member (buffer-name) skippable-buffers)
     (previous-buffer)))
 
+;; (global-set-key (kbd "C-A") 'test)
+
+;; (defun recenter-top-bottom (&optional arg)
+;;   (interactive "P")
+;;   (cond
+;;    (arg (recenter arg))                      ; Always respect ARG.
+;;    (t
+;;     (setq recenter-last-op
+;;        (if (eq this-command last-command)
+;;            (car (or (cdr (member recenter-last-op recenter-positions))
+;;                     recenter-positions))
+;;          (car recenter-positions)))
+;;     (let ((this-scroll-margin
+;;         (min (max 0 scroll-margin)
+;;              (truncate (/ (window-body-height) 4.0)))))
+;;       (cond ((eq recenter-last-op 'middle)
+;;           (recenter))
+;;          ((eq recenter-last-op 'top)
+;;           (recenter this-scroll-margin))
+;;          ((eq recenter-last-op 'bottom)
+;;           (recenter (- -1 this-scroll-margin)))
+;;          ((integerp recenter-last-op)
+;;           (recenter recenter-last-op))
+;;          ((floatp recenter-last-op)
+;;           (recenter (round (* recenter-last-op (window-height))))))))))
+
+;; (defun my-backward-buffer ()
+;;   (interactive)
+;;   (switch-to-buffer (cadr (buffer-list))))
+
+(defvar how-many-buffers 1)
+(defvar how-long-time 1)
 (defun my-backward-buffer ()
   (interactive)
-  (switch-to-buffer (cadr (buffer-list))))
-
-; (defun my-next-buffer ()
-;   "next-buffer, skip all *.**"
-;   (interactive)
-;   (next-buffer)
-;   (while (string-match "\\*.*\\*" (buffer-name))
-;     (next-buffer)))
-;
-; (defun my-previous-buffer ()
-;   "previous-buffer, skip all *.**"
-;   (interactive)
-;   (previous-buffer)
-;   (while (string-match "\\*.*\\*" (buffer-name))
-;     (previous-buffer)))
-
+  (unless (and (eq this-command last-command)
+               (< (- (cadr (current-time)) 2) how-long-time))
+    (setq how-many-buffers 0))
+  (setq how-many-buffers (+ 1 how-many-buffers))
+  (setq how-long-time (cadr (current-time)))
+  (switch-to-buffer
+   (car (nthcdr
+         (% how-many-buffers (list-length (buffer-list)))
+         (buffer-list)))))
 ;; (global-set-key (kbd "C-<tab>") 'my-next-buffer)
 (global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
 (global-set-key (kbd "C-<tab>") 'my-next-buffer)
