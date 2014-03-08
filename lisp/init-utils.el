@@ -67,7 +67,7 @@
 ;; Key to switch between tabs,
 ;;----------------------------------------------------------------------------
 ;; (setq skippable-buffers '("*Messages*" "*scratch*" "*Help*"))
-(setq skippable-buffers '("*scratch*" "*Messages*" "*Help*" " *code-conversion-work*" " *Minibuf-0*" " *Minibuf-1*" " *Echo Area 0*" " *Echo Area 1*" "*Backtrace*" "TAGS"))
+(setq skippable-buffers '("*scratch*" "*Messages*" "*Help*" " *code-conversion-work*" " *Minibuf-0*" " *Minibuf-1*" " *Echo Area 0*" " *Echo Area 1*" "*Backtrace*" " *server*" "TAGS"))
 
 (defun my-next-buffer ()
   "next-buffer that skips certain buffers"
