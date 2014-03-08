@@ -20,7 +20,7 @@
 (defun sp-next-sexp-without-cross-line ()
   (let ((position (point)) (line (line-number-at-pos)))
     (sp-next-sexp)
-    (if (< line (line-number-at-pos))
+    (if (\= line (line-number-at-pos))
         (progn (goto-char position)
                (end-of-line))
       (if (= position (point))
@@ -35,7 +35,9 @@
         (sp-up-sexp 1 1)
       (progn (sp-up-sexp)
              (if (= position (point))
-                 (sp-next-sexp-without-cross-line))))))
+                 (sp-next-sexp-without-cross-line)
+               (progn (goto-char position)
+                      (sp-next-sexp-without-cross-line)))))))
 
 (define-key evil-insert-state-map "\C-e" 'end-of-this)
 
