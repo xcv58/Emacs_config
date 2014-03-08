@@ -66,6 +66,8 @@
 (require 'init-etags)
 (require 'init-ag)
 
+(require 'init-keyfreq)
+
 (require 'init-temp)
 
 ;;----------------------------------------------------------------------------
