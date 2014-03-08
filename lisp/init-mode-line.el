@@ -20,9 +20,14 @@
 ; (add-to-list 'sml/hidden-modes " Guide")
 (sml/setup)
 
-(setq display-time-day-and-date t
-      display-time-interval 10
-      display-time-24hr-format t)
-(display-time)
+(setq display-time-string-forms
+      '(24-hours ":" minutes ":" seconds)
+      display-time-interval 1)
+
+(display-time-mode 1)
+
+;; (setq display-time-day-and-date t)
+;;       display-time-interval 10
+;;       display-time-24hr-format t)
 
 (provide 'init-mode-line)
