@@ -90,7 +90,9 @@
 (defun remove-skippable-buffer (buffer-list)
   (if buffer-list
       (progn
-        (if (member (buffer-name (car buffer-list)) skippable-buffers)
+        (if (or
+             (string-match-p "\\*.+\\*" (buffer-name (car buffer-list)))
+             (member (buffer-name (car buffer-list)) skippable-buffers))
             (remove-skippable-buffer (cdr buffer-list))
           (cons (car buffer-list) (remove-skippable-buffer (cdr buffer-list)))))))
 
