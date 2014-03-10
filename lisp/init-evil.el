@@ -1,8 +1,8 @@
 (require-package 'evil)
 (require-package 'evil-leader)
-(require-package 'evil-matchit)
-;; (require 'evil-matchit)
-(global-evil-matchit-mode 1)
+;; (require-package 'evil-matchit)
+;; ;; (require 'evil-matchit)
+;; (global-evil-matchit-mode 1)
 
 (evil-mode 1)
 (setq evil-default-cursor t)
@@ -31,6 +31,13 @@
 (define-key evil-normal-state-map "zh" 'hs-hide-all-comments)
 ;; (define-key evil-insert-state-map "\C-e" 'evil-end-of-visual-line)
 (define-key evil-insert-state-map "\C-y" 'yank)
+
+;; (evil-define-command evil-toggle-fold ()
+;;  "Open or close a fold."
+;;  (end-of-line)
+;;  (when (fboundp 'hs-minor-mode)
+;;    (hs-minor-mode 1)
+;;    (with-no-warnings (hs-toggle-hiding))))
 
 (defun visual-line-witout-end ()
   (interactive)
