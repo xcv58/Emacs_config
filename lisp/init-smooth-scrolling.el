@@ -1,22 +1,24 @@
-(require-package 'sublimity)
-(require 'sublimity-scroll)
-(require 'sublimity-map)
+;; (require-package 'sublimity)
+;; (require 'sublimity-scroll)
+;; (require 'sublimity-map)
 
-(sublimity-global-mode)
+;; (sublimity-global-mode)
 
-(setq sublimity-scroll-weight 8
-      sublimity-scroll-drift-length 1)
-(setq sublimity-map-size 24)
-(setq sublimity-map-fraction 0.5)
-(setq sublimity-map-on-scroll t)
+;; (setq sublimity-scroll-weight 8
+;;       sublimity-scroll-drift-length 1)
+;; (setq sublimity-map-size 24)
+;; (setq sublimity-map-fraction 0.5)
+;; (setq sublimity-map-on-scroll t)
 
-(sublimity-map-set-delay 32)
+;; (sublimity-map-set-delay 32)
 
-(add-hook 'sublimity-map-setup-hook
-          (lambda ()
-            (setq mode-line-format nil)))
+;; (add-hook 'sublimity-map-setup-hook
+;;           (lambda ()
+;;             (setq mode-line-format nil)))
 
 (require-package 'smooth-scrolling)
+(require-package 'smooth-scroll)
+(require 'smooth-scroll)
 (setq smooth-scroll-margin 4)
 
 
