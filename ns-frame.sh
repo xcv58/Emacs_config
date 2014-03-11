@@ -4,7 +4,7 @@ then
     osascript <<EOF
 display notification with title "Open Emacs" subtitle "Please wait 3 seconds."
 EOF
-    /usr/local/bin/emacs --daemon
+    /Applications/Emacs.app/Contents/MacOS/Emacs --daemon
 fi
 if [ "$existNsFrame" != "ns" ]
 then

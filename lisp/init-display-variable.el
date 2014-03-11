@@ -27,9 +27,10 @@
 (scroll-bar-mode -1)
 
 ;;; Default Fullscreen
-(require-package 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
-(add-hook 'after-make-frame-functions 'maximize-frame t)
+;; (setq mf-max-width 1900)
+;; (require-package 'maxframe)
+;; (add-hook 'window-setup-hook 'maximize-frame t)
+;; (add-hook 'after-make-frame-functions 'maximize-frame t)
 
 ;;; Disable tool bar
 (custom-set-variables
