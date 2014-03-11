@@ -32,12 +32,14 @@
 ;; (define-key evil-insert-state-map "\C-e" 'evil-end-of-visual-line)
 (define-key evil-insert-state-map "\C-y" 'yank)
 
-;; (evil-define-command evil-toggle-fold ()
-;;  "Open or close a fold."
-;;  (end-of-line)
-;;  (when (fboundp 'hs-minor-mode)
-;;    (hs-minor-mode 1)
-;;    (with-no-warnings (hs-toggle-hiding))))
+(evil-define-command evil-toggle-fold ()
+  "Open or close a fold."
+  (let ((point (point)))
+    (end-of-line)
+    (when (fboundp 'hs-minor-mode)
+      (hs-minor-mode 1)
+      (with-no-warnings (hs-toggle-hiding)))
+    (goto-char point)))
 
 (defun visual-line-witout-end ()
   (interactive)
