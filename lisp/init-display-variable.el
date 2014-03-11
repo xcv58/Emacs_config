@@ -27,6 +27,7 @@
 (scroll-bar-mode -1)
 
 ;;; Default Fullscreen
+(global-set-key (kbd "C-S-<up>") 'toggle-frame-maximized)
 ;; (setq mf-max-width 1900)
 ;; (require-package 'maxframe)
 ;; (add-hook 'window-setup-hook 'maximize-frame t)
