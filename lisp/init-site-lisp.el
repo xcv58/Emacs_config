@@ -15,7 +15,7 @@
 (sanityinc/add-subdirs-to-load-path
  (expand-file-name "site-lisp/" user-emacs-directory))
 
-;;; Utilities for grabbing upstream libs
+;;; Utilities for grabbing upstream libs
 
 (defun site-lisp-dir-for (name)
   (expand-file-name (format "site-lisp/%s" name) user-emacs-directory))
@@ -44,13 +44,19 @@ source file under ~/.emacs.d/site-lisp/name/"
     (and f (string-prefix-p (file-name-as-directory (site-lisp-dir-for name)) f))))
 
 
-
 ;; Download these upstream libs
 
 (unless (> emacs-major-version 23)
   (ensure-lib-from-url
    'package
    "http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el"))
+
+(defun line-first-non-blank-position ()
+  (interactive)
+  (let ((point (point)))
+    (back-to-indentation)
+    (point)
+    (goto-char point)))
 
 (defun eval-last-sexp (eval-last-sexp-arg-internal)
   "Evaluate sexp before point; print value in minibuffer.
@@ -62,19 +68,20 @@ If `eval-expression-debug-on-error' is non-nil, which is the default,
 this command arranges for all errors to enter the debugger."
   (interactive "P")
   (let ((point (point)))
-  (if (= (point) (line-beginning-position))
-      (evilmi-jump-items))
-  (if (< (point) (line-end-position))
-      (end-of-line))
-  (if (null eval-expression-debug-on-error)
-      (eval-last-sexp-1 eval-last-sexp-arg-internal)
-    (let ((value
-           (let ((debug-on-error eval-last-sexp-fake-value))
-             (cons (eval-last-sexp-1 eval-last-sexp-arg-internal)
-                   debug-on-error))))
-      (unless (eq (cdr value) eval-last-sexp-fake-value)
-        (setq debug-on-error (cdr value)))
-      (car value)))
-  (goto-char point)))
+    (if (or (= (point) (line-beginning-position))
+            (= (point) (line-first-non-blank-position)))
+        (evilmi-jump-items))
+    (if (< (point) (line-end-position))
+        (end-of-line))
+    (if (null eval-expression-debug-on-error)
+        (eval-last-sexp-1 eval-last-sexp-arg-internal)
+      (let ((value
+             (let ((debug-on-error eval-last-sexp-fake-value))
+               (cons (eval-last-sexp-1 eval-last-sexp-arg-internal)
+                     debug-on-error))))
+        (unless (eq (cdr value) eval-last-sexp-fake-value)
+          (setq debug-on-error (cdr value)))
+        (car value)))
+    (goto-char point)))
 
 (provide 'init-site-lisp)
