@@ -64,13 +64,16 @@ source file under ~/.emacs.d/site-lisp/name/"
     If you are at middle of line.
       It will goto end of line and eval.
     If you are at the beginning of a sexp.
-      It will try jump-items and eval."
+      It will try jump-items and eval.
+   Tips: if you wanna eval whole function,
+   you just need prevent your cursor located at beginning of line
+     or the first non-blank char."
   (interactive "P")
   (let ((point (point)))
     (if (or (= (point) (line-beginning-position))
             (= point (line-first-non-blank)))
         (evil-jump-item)
-      (if (< (point) (line-end-position))
+      (if (< point (line-end-position))
           (end-of-line)))
     (if (null eval-expression-debug-on-error)
         (eval-last-sexp-1 eval-last-sexp-arg-internal)
