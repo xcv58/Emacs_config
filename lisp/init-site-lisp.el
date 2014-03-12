@@ -51,28 +51,27 @@ source file under ~/.emacs.d/site-lisp/name/"
    'package
    "http://repo.or.cz/w/emacs.git/blob_plain/1a0a666f941c99882093d7bd08ced15033bc3f0c:/lisp/emacs-lisp/package.el"))
 
-(defun line-first-non-blank-position ()
+(defun line-first-non-blank ()
   (interactive)
   (let ((point (point)))
     (back-to-indentation)
-    (point)
-    (goto-char point)))
+    (point)))
 
 (defun eval-last-sexp (eval-last-sexp-arg-internal)
-  "Evaluate sexp before point; print value in minibuffer.
-Interactively, with prefix argument, print output into current buffer.
-Truncates long output according to the value of the variables
-`eval-expression-print-length' and `eval-expression-print-level'.
-
-If `eval-expression-debug-on-error' is non-nil, which is the default,
-this command arranges for all errors to enter the debugger."
+  " xcv58's version.
+    If you already at end of line.
+      It will eval sexp directly.
+    If you are at middle of line.
+      It will goto end of line and eval.
+    If you are at the beginning of a sexp.
+      It will try jump-items and eval."
   (interactive "P")
   (let ((point (point)))
     (if (or (= (point) (line-beginning-position))
-            (= (point) (line-first-non-blank-position)))
-        (evilmi-jump-items))
-    (if (< (point) (line-end-position))
-        (end-of-line))
+            (= point (line-first-non-blank)))
+        (evil-jump-item)
+      (if (< (point) (line-end-position))
+          (end-of-line)))
     (if (null eval-expression-debug-on-error)
         (eval-last-sexp-1 eval-last-sexp-arg-internal)
       (let ((value
