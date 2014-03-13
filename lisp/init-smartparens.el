@@ -50,8 +50,14 @@
   (let ((point (point)) (line (line-number-at-pos)))
     (unless (= (point) (line-end-position))
       (if (< (sp-up-sexp-without-cross-line point) (sp-next-sexp-without-cross-line point))
-          (sp-up-sexp-without-cross-line point)
-        (sp-next-sexp-without-cross-line point)))))
+          (if (> (sp-up-sexp-without-cross-line point) point)
+              (sp-up-sexp-without-cross-line point)
+            (sp-next-sexp-without-cross-line))
+        (if (> (sp-next-sexp-without-cross-line) point)
+            (sp-next-sexp-without-cross-line point)
+          (sp-up-sexp-without-cross-line point)))
+      (if (= point (point))
+          (end-of-line)))))
 
 (define-key evil-insert-state-map "\C-e" 'end-of-this)
 
