@@ -4,17 +4,18 @@
 ;; (require 'latex-pretty-symbols)
 
 (require-package 'auctex-latexmk)
+(require 'auctex-latexmk)
+;; (auctex-latexmk-setup)
+
 (add-hook 'TeX-mode-hook
           '(lambda ()
-             (setq TeX-command-default "Latexmk")
-             (auto-complete-mode t)
-             (defvar Latexmk-Tex-command-list nil)
-             (unless Latexmk-Tex-command-list
-               (setq Latexmk-Tex-command-list t)
-               (push
-                '("Latexmk" "latexmk -pvc -pdf -interaction=nonstopmode %s" TeX-run-TeX nil t
-                  :help "Run Latexmk on file")
-                TeX-command-list))))
+             (setq TeX-command-default "Latexmk")))
+
+(push
+ '("Latexmk" "latexmk -pvc -pdf -interaction=nonstopmode %s"
+   TeX-run-TeX nil t
+   :help "Run Latexmk on file")
+ TeX-command-list)
 
 (when *is-a-mac*
   (getenv "PATH")
@@ -25,8 +26,8 @@
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
 
+(TeX-global-PDF-mode t)
 (setq-default TeX-master nil)
-(setq TeX-PDF-mode t)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 (setq TeX-save-query nil)
