@@ -90,9 +90,8 @@
 (defun remove-skippable-buffer (buffer-list)
   (if buffer-list
       (progn
-        (if (or
-             (string-match-p "\\*.+\\*" (buffer-name (car buffer-list)))
-             (member (buffer-name (car buffer-list)) skippable-buffers))
+        (if (or (string-match-p "\\*.+\\*" (buffer-name (car buffer-list)))
+                (member (buffer-name (car buffer-list)) skippable-buffers))
             (remove-skippable-buffer (cdr buffer-list))
           (cons (car buffer-list) (remove-skippable-buffer (cdr buffer-list)))))))
 
@@ -102,12 +101,17 @@
   (interactive)
   (unless (eq this-command last-command)
     (setq how-many-buffers 0))
-  (setq how-long-time (cadr (current-time)))
   (let ((buffer-list (remove-skippable-buffer (buffer-list))))
-    (setq how-many-buffers
-          (+ 1 (% how-many-buffers (- (list-length buffer-list) 1))))
-    (message "%s, %s" (nth how-many-buffers buffer-list) (append (cdr (nthcdr how-many-buffers buffer-list)) (subseq buffer-list 0 how-many-buffers)))
-    (switch-to-buffer (nth how-many-buffers buffer-list))))
+    (if (> 2 (length buffer-list))
+        (progn
+          (message "Only one buffer."))
+      (progn
+        (setq how-many-buffers
+              (+ 1 (% how-many-buffers (- (list-length buffer-list) 1))))
+        (message "%s, %s" (nth how-many-buffers buffer-list)
+                 (append (cdr (nthcdr how-many-buffers buffer-list))
+                         (subseq buffer-list 0 how-many-buffers)))
+        (switch-to-buffer (nth how-many-buffers buffer-list))))))
 
 ;; (global-set-key (kbd "C-<tab>") 'my-next-buffer)
 (global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
