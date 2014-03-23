@@ -11,7 +11,7 @@
 (sp-pair "\"" "\"" :wrap "C-\"")
 
 (define-key sp-keymap (kbd "C-c ,") 'sp-up-sexp)
-(define-key sp-keymap (kbd "M-e") 'sp-up-sexp)
+;; (define-key sp-keymap (kbd "M-e") 'sp-up-sexp)
 (define-key sp-keymap (kbd "M-b") 'sp-backward-sexp)
 (define-key sp-keymap (kbd "M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "C-c k") 'sp-kill-sexp)
@@ -23,12 +23,7 @@
   (let ((position (point)) (line (line-number-at-pos)))
     (sp-next-sexp)
     (if (/= line (line-number-at-pos))
-        (progn (goto-char position))
-      (if (= position (point))
-          ()
-        (if (> position (point))
-            (sp-next-sexp-without-cross-line))))
-    (if (< (point) position) (progn (goto-char position) (end-of-line)))
+        (goto-char position))
     (point)))
 
 (defun sp-up-sexp-without-cross-line (&optional point)
@@ -37,12 +32,7 @@
   (let ((position (point)) (line (line-number-at-pos)))
     (sp-up-sexp)
     (if (/= line (line-number-at-pos))
-        (progn (goto-char position))
-      (if (= position (point))
-          ()
-        (if (> position (point))
-            (sp-up-sexp-without-cross-line))))
-    (if (< (point) position) (progn (goto-char position) (end-of-line)))
+        (goto-char position))
     (point)))
 
 (defun end-of-this()
@@ -58,6 +48,7 @@
                    (min up-point next-point))))))
 
 (define-key evil-insert-state-map "\C-e" 'end-of-this)
+(define-key evil-insert-state-map "\M-e" 'end-of-line)
 
 
 (provide 'init-smartparens)
