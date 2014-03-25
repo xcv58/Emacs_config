@@ -1,4 +1,4 @@
-existNsFrame=$(/usr/local/bin/emacsclient -e "(exist-ns-frame)")
+existNsFrame=$(/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -e "(exist-ns-frame)")
 if [ "$existNsFrame" == "" ]
 then
     osascript <<EOF
@@ -8,7 +8,7 @@ EOF
 fi
 if [ "$existNsFrame" != "ns" ]
 then
-    /usr/local/bin/emacsclient -c -n $*
+    /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n $*
     osascript <<FRONTMOST
 set appName to "Emacs"
 set appID to bundle identifier of (info for (path to application appName))
