@@ -23,7 +23,19 @@
   )
 
 ;; remap 0 to evil-first-non-blank
-(evil-redirect-digit-argument evil-motion-state-map "0" 'evil-first-non-blank)
+(defun line-first-non-blank-position()
+  (let* ((point (point))
+         (first-non-blank-position (progn (evil-first-non-blank) (point))))
+    (goto-char point)
+    first-non-blank-position))
+
+(defun evil-first-non-blank-or-beginning-of-line ()
+  (interactive)
+  (if (= (point) (line-first-non-blank-position))
+      (evil-beginning-of-line)
+    (evil-first-non-blank)))
+
+(evil-redirect-digit-argument evil-motion-state-map "0" 'evil-first-non-blank-or-beginning-of-line)
 (define-key evil-motion-state-map "^" 'evil-beginning-of-line)
 ;; add hook hs-minor-mode for c-mode
 ;; add func hs-hide-all-comments
