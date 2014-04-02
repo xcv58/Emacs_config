@@ -18,7 +18,7 @@
 (define-key sp-keymap (kbd "C-c u") 'sp-unwrap-sexp)
 
 (defun is-close-char (char)
-  (member char '(?\( ?\) ?\] ?\, ? ?\$ ?\. ?\")))
+  (member char '(?\( ?\) ?\] ?\, ? ?\$ ?\. ?\" ?\{ ?\})))
 
 (defun end-of-this()
   (interactive)
@@ -30,6 +30,5 @@
 
 (define-key evil-insert-state-map "\C-e" 'end-of-this)
 (define-key evil-insert-state-map "\M-e" 'end-of-line)
-
 
 (provide 'init-smartparens)

@@ -22,6 +22,8 @@
   "w" 'lookup-word-at-point
   )
 
+(define-key evil-motion-state-map (kbd "C-b") 'evil-scroll-up)
+
 ;; remap 0 to evil-first-non-blank
 (defun line-first-non-blank-position()
   (let* ((point (point))
