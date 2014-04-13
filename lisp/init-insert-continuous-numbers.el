@@ -13,7 +13,7 @@
     (while (< i (+ 1 end))
       (dotimes (times
                 (- (length (number-to-string end)) (length (number-to-string i))))
-        (insert "0"))
+        (insert " "))
       (insert (number-to-string i))
       (next-or-new-line)
       (setq i (+ i step)))))
