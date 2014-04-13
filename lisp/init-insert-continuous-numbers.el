@@ -11,14 +11,22 @@
 (defun insert-continuous-numbers(start end step)
   (let* ((i start))
     (while (< i (+ 1 end))
+      (dotimes (times
+                (- (length (number-to-string end)) (length (number-to-string i))))
+        (insert "0"))
       (insert (number-to-string i))
       (next-or-new-line)
       (setq i (+ i step)))))
 
-(defun start-end-step-insert-continuous-numbers(start end step)
-  (interactive "nStart: \nnEnd: \nnStep:")
+(defun step-start-end-insert-continuous-numbers(step start end)
+  (interactive "nStep: \nnStart: \nnEnd:")
   (beginning-of-line)
   (insert-continuous-numbers start end step))
+
+(defun step-end-insert-continuous-numbers(step end)
+  (interactive "nStep: \nnEnd:")
+  (beginning-of-line)
+  (insert-continuous-numbers 0 end step))
 
 (defun start-end-insert-continuous-numbers(start end)
   (interactive "nStart: \nnEnd:")
