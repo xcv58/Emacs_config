@@ -68,6 +68,8 @@
 
 (require 'init-keyfreq)
 
+(require 'init-insert-continuous-numbers)
+
 (require 'init-temp)
 
 ;;----------------------------------------------------------------------------

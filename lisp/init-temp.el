@@ -28,8 +28,10 @@
             (let ((filename (buffer-file-name)))
               ;; Enable kernel mode for the appropriate files
               (when (and filename
-                         (string-match (expand-file-name "~/src/")
-                                       filename))
+                         (or (string-match (expand-file-name "~/src/")
+                                           filename)
+                             (string-match (expand-file-name "~/linux-master/")
+                                           filename)))
                 (setq indent-tabs-mode t)
                 (ethan-wspace-mode 0)
                 (whitespace-mode 0)
