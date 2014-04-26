@@ -47,9 +47,9 @@
 (require 'init-dired)               ;; Directory display and operation
 (require 'init-ido)                 ;; InteractivelyDoThings
 (require 'init-auto-complete)
-(require 'init-company)
+;; (require 'init-company)
 (require 'init-matlab)
-(require 'init-ibuffer)
+;; (require 'init-ibuffer)
 (require 'init-iedit)
 (require 'init-yasnippet)
 (require 'init-slime)
@@ -60,13 +60,11 @@
 
 ;(require 'init-vc)
 (require 'init-isearch)
-(require 'init-cedet)
-(require 'init-ecb)
-(require 'init-ascope)
+;; (require 'init-cedet)
+;; (require 'init-ecb)
+;; (require 'init-ascope)
 (require 'init-etags)
 (require 'init-ag)
-
-(require 'init-keyfreq)
 
 (require 'init-insert-continuous-numbers)
 
