@@ -1,11 +1,11 @@
-existNsFrame=$(/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -e "(exist-ns-frame)")
-if [ "$existNsFrame" == "" ]
-then
+pid=$(pgrep \[eE\]macs)
+if [ "$pid" == "" ]; then
     osascript <<EOF
 display notification with title "Open Emacs" subtitle "Please wait 3 seconds."
 EOF
     /Applications/Emacs.app/Contents/MacOS/Emacs --daemon
 fi
+existNsFrame=$(/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -e "(exist-ns-frame)")
 if [ "$existNsFrame" != "ns" ]
 then
     /Applications/Emacs.app/Contents/MacOS/bin/emacsclient -c -n $*
