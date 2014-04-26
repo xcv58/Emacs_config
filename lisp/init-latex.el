@@ -3,30 +3,22 @@
 ;; (require-package 'latex-pretty-symbols)
 ;; (require 'latex-pretty-symbols)
 
-(require-package 'auctex-latexmk)
-(require 'auctex-latexmk)
-;; (auctex-latexmk-setup)
-
 (add-hook 'TeX-mode-hook
           '(lambda ()
              (setq TeX-command-default "Latexmk")))
 
-(push
- '("Latexmk" "latexmk -pvc -pdf -interaction=nonstopmode %s"
-   TeX-run-TeX nil t
-   :help "Run Latexmk on file")
- TeX-command-list)
+(setq insert-latexmk nil)
+(add-hook
+ 'LaTeX-mode-hook
+ (lambda ()
+   (unless insert-latexmk
+     (push
+      '("Latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+        :help "Run Latexmk on file")
+      TeX-command-list)
+     (setq insert-latexmk t))))
 
-(when *is-a-mac*
-  (getenv "PATH")
-  (setenv "PATH"
-          (concat
-           "/usr/texbin" ":"
-           (getenv "PATH"))))
-(setq exec-path (append exec-path '("/usr/local/bin")))
-
-
-(TeX-global-PDF-mode t)
+(setq TeX-PDF-mode t)
 (setq-default TeX-master nil)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
