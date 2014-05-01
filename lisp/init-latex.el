@@ -13,7 +13,7 @@
  (lambda ()
    (unless insert-latexmk
      (push
-      '("Latexmk" "latexmk -pdf %s" TeX-run-TeX nil t
+      '("Latexmk" "latexmk -pdf -pvc -interaction=nonstopmode %s" TeX-run-TeX nil t
         :help "Run Latexmk on file")
       TeX-command-list)
      (setq insert-latexmk t))))
