@@ -58,6 +58,8 @@
 (require 'init-expand-region)
 (require 'init-whitespace)
 
+(require 'init-prolog)
+
 ;(require 'init-vc)
 (require 'init-isearch)
 ;; (require 'init-cedet)
