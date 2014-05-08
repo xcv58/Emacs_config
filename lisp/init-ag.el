@@ -1,6 +1,6 @@
 (require-package 'ag)
-(require-package 'helm-ag)
-(require-package 'helm-ag-r)
+;; (require-package 'helm-ag)
+;; (require-package 'helm-ag-r)
 
 (setq ag-highlight-search t)
 
