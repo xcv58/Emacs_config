@@ -9,4 +9,6 @@
         ;; (tab-mark 9 [9655 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
         (tab-mark 9 [183 9])))
 
+(setq mode-require-final-newline nil)
+
 (provide 'init-whitespace)
