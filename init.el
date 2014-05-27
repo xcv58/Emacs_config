@@ -59,6 +59,7 @@
 (require 'init-whitespace)
 
 (require 'init-prolog)
+(require 'init-java)
 
 ;(require 'init-vc)
 (require 'init-isearch)
