@@ -1,6 +1,11 @@
 (require-package 'smart-mode-line)
 (require 'smart-mode-line)
-(setq sml/theme 'dark)
+(setq sml/theme 'respectful)
+;; (sml/apply-theme 'dark)
+;; (sml/apply-theme 'light)
+;; (sml/apply-theme 'respectful)
+;; (sml/apply-theme 'automatic)
+(setq sml/no-confirm-load-theme t)
 
 (setq sml/shorten-directory t)
 (setq sml/shorten-modes t)

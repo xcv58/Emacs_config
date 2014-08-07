@@ -5,11 +5,11 @@
 
 ;;; Theme
 (require-package 'twilight-anti-bright-theme)
+
 ;(if window-system
 ;    (load-theme 'twilight-anti-bright t))
 ;  (load-theme 'manoj-dark t))
 (load-theme 'twilight-anti-bright t)
-
 ;;; Default position
 (setq default-frame-alist
       '(
@@ -126,7 +126,8 @@
 
 ;;; Initial message
 (setq-default initial-scratch-message
-              (concat ";; Emacs is ready for you: " (or user-login-name "") "!\n\n"))
+              ())
+              ;; (concat ";; Emacs is ready for you: " (or user-login-name "") "!\n\n"))
               ;(concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
 
 ;; Turn off wrap lines
