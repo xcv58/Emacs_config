@@ -13,6 +13,7 @@
 ;;; Default position
 (setq default-frame-alist
       '(
+        (fullscreen . maximized)
         ;; (top . 200)
         ;; (left . 400)
         ;; (width . 80)
@@ -20,13 +21,18 @@
         (cursor-type . box)
         (cursor-color . "red")))
 
-;; (setq initial-frame-alist '((top . 0) (left . 30)))
 
+;; (setq initial-frame-alist '((top . 0) (left . 30)))
 
 ;;; Disable scroll bar
 (scroll-bar-mode -1)
 
 ;;; Default Fullscreen
+(defun maximize-frame ()
+  (modify-frame-parameters
+   nil
+   `((fullscreen . ,'maximized))))
+
 (global-set-key (kbd "C-c m") 'toggle-frame-maximized)
 ;; (setq mf-max-width 1900)
 ;; (require-package 'maxframe)
