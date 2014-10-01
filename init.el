@@ -40,6 +40,7 @@
 (require 'init-evil)
 (require 'init-kill-ring)
 (require 'init-dict)
+(require 'init-tabbar)
 
 (require 'init-display-variable)             ;; Config about theme and font and variable
 (require 'init-mode-line)
