@@ -9,7 +9,9 @@
 ;(if window-system
 ;    (load-theme 'twilight-anti-bright t))
 ;  (load-theme 'manoj-dark t))
-(load-theme 'twilight-anti-bright t)
+;; (load-theme 'twilight-anti-bright t)
+(load-theme 'solarized-dark t)
+
 ;;; Default position
 (setq default-frame-alist
       '(
