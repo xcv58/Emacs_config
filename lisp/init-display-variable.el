@@ -5,12 +5,12 @@
 
 ;;; Theme
 (require-package 'twilight-anti-bright-theme)
-
+(require-package 'color-theme-sanityinc-solarized)
 ;(if window-system
 ;    (load-theme 'twilight-anti-bright t))
 ;  (load-theme 'manoj-dark t))
 ;; (load-theme 'twilight-anti-bright t)
-(load-theme 'solarized-dark t)
+(load-theme 'sanityinc-solarized-dark t)
 
 ;;; Default position
 (setq default-frame-alist
