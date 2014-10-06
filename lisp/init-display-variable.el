@@ -65,6 +65,11 @@
   ;; you may want to add different for other charset in this way.
   )
 
+(when (eq system-type 'gnu/linux)
+  (set-face-attribute 'default nil :family "Inconsolata")
+  (set-face-attribute 'default nil :height 200)
+  (set-fontset-font t 'han (font-spec :family "Hiragino Sans GB" )))
+
 ;; (set-frame-font "Monaco-28")
 
 ;; make useless whitespace visible
