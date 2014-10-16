@@ -90,6 +90,9 @@
 ;;----------------------------------------------------------------------------
 (require 'init-daemon)
 
+(defun eldoc-print-current-symbol-info ()
+  ;; temp turn off this function.
+  )
 
 ;;; Show startup time
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
