@@ -1,8 +1,8 @@
 Emacs config
 ========
-Only work on Emacs 24 and later!
+Only work on Emacs 24, 25 and later!
 
-I just test on OS X Version 10.9 and Ubuntu 13.10 x64.
+I just test on OS X Version 10.9, 10,10 and Ubuntu 13.10 x64, 14.04 x64.
 
 If you have your own ~/.emacs.d directory.
 ========
