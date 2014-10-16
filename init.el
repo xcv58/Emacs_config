@@ -46,6 +46,7 @@
 (require 'init-mode-line)
 (require 'init-smooth-scrolling)
 (require 'init-latex)
+(require 'init-git)
 (require 'init-dired)               ;; Directory display and operation
 (require 'init-ido)                 ;; InteractivelyDoThings
 (require 'init-auto-complete)
