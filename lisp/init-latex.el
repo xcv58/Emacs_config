@@ -1,4 +1,9 @@
 (require-package 'auctex)
+(require-package 'cdlatex)
+
+(add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
 
 ;; (require-package 'latex-pretty-symbols)
 ;; (require 'latex-pretty-symbols)
