@@ -37,6 +37,7 @@
 ;; Features
 ;;----------------------------------------------------------------------------
 ;;(require 'init-idle)
+(require 'init-style)
 (require 'init-evil)
 (require 'init-kill-ring)
 (require 'init-dict)
@@ -76,7 +77,7 @@
 
 (require 'init-insert-continuous-numbers)
 
-(require 'init-temp)
+;; (require 'init-temp)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
