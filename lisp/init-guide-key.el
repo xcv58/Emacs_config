@@ -1,5 +1,5 @@
-(require 'pos-tip)
-(require 'guide-key-tip)
+(require-package 'pos-tip)
+(require-package 'guide-key-tip)
 (setq guide-key-tip/enabled t)
 
 (require-package 'guide-key)
