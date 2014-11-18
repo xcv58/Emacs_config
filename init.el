@@ -65,7 +65,7 @@
 (require 'init-whitespace)
 
 (require 'init-prolog)
-(require 'init-java)
+;; (require 'init-java)
 
 ;(require 'init-vc)
 (require 'init-isearch)
@@ -77,7 +77,7 @@
 
 (require 'init-insert-continuous-numbers)
 
-;; (require 'init-temp)
+;; (require 'init-os161)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface

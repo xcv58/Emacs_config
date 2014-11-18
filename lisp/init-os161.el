@@ -39,4 +39,4 @@
                 (linum-mode 1)
                 (c-set-style "linux-tabs-only")))))
 
-(provide 'init-temp)
+(provide 'init-os161)
