@@ -56,7 +56,7 @@
 (require 'init-matlab)
 ;; (require 'init-ibuffer)
 (require 'init-iedit)
-;; (require 'init-yasnippet)
+(require 'init-yasnippet)
 (require 'init-abbrev)
 (require 'init-slime)
 (require 'init-w3)
