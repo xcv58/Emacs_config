@@ -9,8 +9,9 @@
 ;(if window-system
 ;    (load-theme 'twilight-anti-bright t))
 ;  (load-theme 'manoj-dark t))
-;; (load-theme 'twilight-anti-bright t)
-(load-theme 'sanityinc-solarized-dark t)
+(if window-system
+   (load-theme 'sanityinc-solarized-dark t)
+ (load-theme 'sanityinc-tomorrow-bright t))
 
 ;;; Default position
 (setq default-frame-alist

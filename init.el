@@ -43,7 +43,6 @@
 (require 'init-dict)
 (require 'init-tabbar)
 
-(require 'init-display-variable)             ;; Config about theme and font and variable
 (require 'init-mode-line)
 (require 'init-smooth-scrolling)
 (require 'init-latex)
@@ -85,6 +84,10 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file)
   (load custom-file))
+
+;; Config about theme and font and variable
+;; Move down to avoid local setting overwrite theme setting
+(require 'init-display-variable)
 
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
