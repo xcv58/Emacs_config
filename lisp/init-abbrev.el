@@ -5,7 +5,6 @@
                          ("btw" "by the way" nil 3)
                          ("wether" "whether" nil 5)
                          ("ewiki" "http://www.emacswiki.org/cgi-bin/wiki.pl" nil 3)
-                         ("sop" "System.out.println")
                          ))
 
 ;; stop asking whether to save newly added abbrev when quitting emacs

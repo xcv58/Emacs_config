@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Log.i(TAG, )
+# key: logi
+# --
+Log.i(${1:TAG}, $0);
