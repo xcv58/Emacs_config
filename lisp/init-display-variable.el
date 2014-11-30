@@ -6,6 +6,7 @@
 ;;; Theme
 (require-package 'twilight-anti-bright-theme)
 (require-package 'color-theme-sanityinc-solarized)
+(require-package 'color-theme-sanityinc-tomorrow)
 ;(if window-system
 ;    (load-theme 'twilight-anti-bright t))
 ;  (load-theme 'manoj-dark t))
