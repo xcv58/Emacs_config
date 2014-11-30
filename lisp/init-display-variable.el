@@ -81,7 +81,7 @@
 ;; (set-cursor-color "#ffffff")
 
 (setq
- default-directory "~/Dropbox/"
+ default-directory (if (file-exists-p "~/Dropbox") "~/Dropbox" "~")
  inhibit-startup-message t
  ;; follow symlinks and don't ask
  blink-cursor-interval 1.5
