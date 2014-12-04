@@ -31,4 +31,7 @@
 (define-key evil-insert-state-map "\C-e" 'end-of-this)
 (define-key evil-insert-state-map "\M-e" 'end-of-line)
 
+;; Removing pairs
+(sp-pair "\$" nil :actions :rem)
+
 (provide 'init-smartparens)
