@@ -47,6 +47,7 @@
 (require 'init-smooth-scrolling)
 (require 'init-latex)
 (require 'init-git)
+(require 'init-gradle)
 (require 'init-guide-key)
 (require 'init-dired)               ;; Directory display and operation
 (require 'init-ido)                 ;; InteractivelyDoThings
