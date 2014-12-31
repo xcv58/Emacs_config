@@ -13,4 +13,14 @@
   (find 'ns
         (mapcar #'(lambda (x) (if t (framep x))) (frame-list))))
 
+(setq pidfile "~/.emacs.pid")
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (with-temp-file pidfile
+              (insert (number-to-string (emacs-pid))))))
+(add-hook 'kill-emacs-hook
+          (lambda ()
+            (when (file-exists-p pidfile)
+              (delete-file pidfile))))
+
 (provide 'init-daemon)

@@ -1,5 +1,4 @@
-pid=$(pgrep \[eE\]macs)
-if [ "$pid" == "" ]; then
+if [ ! -f ~/.emacs.pid ]; then
     osascript <<EOF
 display notification with title "Open Emacs" subtitle "Please wait 3 seconds."
 EOF
