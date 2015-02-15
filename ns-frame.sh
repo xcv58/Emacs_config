@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ ! -f ~/.emacs.pid ]; then
     osascript <<EOF
 display notification with title "Open Emacs" subtitle "Please wait 3 seconds."
