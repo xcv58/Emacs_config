@@ -23,7 +23,7 @@
 ;;----------------------------------------------------------------------------
 ;; Set C-return to toggle fullscreen
 ;;----------------------------------------------------------------------------
-(global-set-key (kbd "C-<return>") 'toggle-frame-fullscreen)
+;; (global-set-key (kbd "C-<return>") 'toggle-frame-fullscreen)
 
 ;;----------------------------------------------------------------------------
 ;; Copy current buffer file name as kill
