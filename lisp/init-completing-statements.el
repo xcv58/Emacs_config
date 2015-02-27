@@ -1,6 +1,9 @@
+;; need rewrite
+;; 1. use regex to get whether need block
+;; 2. support multiple type of language, i.e. C, Java, Python, JavaScript
 (defun need-block()
   (line-first-non-blank)
-  (member (thing-at-point 'word) '("if" "while" "for")))
+  (member (thing-at-point 'word) '("if" "while" "for" "else")))
 
 (defun is-semicolon(char)
   (interactive)
@@ -8,9 +11,9 @@
 
 (defun insert-semicolon()
   (end-of-line)
-  (unless (is-semicolon (char-before))
+  (if (is-semicolon (char-before))
+      (newline)
     (insert ";"))
-  (newline)
   (indent-according-to-mode))
 
 (defun insert-block()
