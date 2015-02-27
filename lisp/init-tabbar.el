@@ -14,8 +14,7 @@
 ; scroll bar when your mouse is moving.
 ;; (setq tabbar-ruler-popup-scrollbar t)
 
-(tabbar-ruler-group-buffer-groups)
-(tabbar-ruler-group-by-projectile-project)
+(tabbar-ruler-group-user-buffers)
 
 (global-set-key (kbd "C-`") 'tabbar-ruler-up)
 
