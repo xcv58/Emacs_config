@@ -1,6 +1,6 @@
 ;; need rewrite
 ;; 1. use regex to get whether need block
-;; 2. support multiple type of language, i.e. C, Java, Python, JavaScript
+;; 2. support multiple type of language, i.e. C, Java, Python, JavaScript, json
 (defun need-block()
   (line-first-non-blank)
   (member (thing-at-point 'word) '("if" "while" "for" "else")))
