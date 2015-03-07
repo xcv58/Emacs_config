@@ -5,4 +5,6 @@
 (setq indent-tabs-mode nil
       c-basic-offset 4)
 
+(c-set-offset 'case-label '+)
+
 (provide 'init-style)
