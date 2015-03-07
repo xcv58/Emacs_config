@@ -67,6 +67,7 @@
 
 (require 'init-prolog)
 ;; (require 'init-java)
+(require 'init-js)
 
 ;(require 'init-vc)
 (require 'init-isearch)
