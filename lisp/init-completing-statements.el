@@ -3,7 +3,7 @@
 ;; 2. support multiple type of language, i.e. C, Java, Python, JavaScript, json
 (defun need-block()
   (line-first-non-blank)
-  (member (thing-at-point 'word) '("if" "while" "for" "else")))
+  (member (thing-at-point 'word) '("if" "while" "for" "else" "switch")))
 
 (defun is-semicolon(char)
   (interactive)
