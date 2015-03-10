@@ -1,19 +1,14 @@
-(defvar is-auto-org-to-latex 1)
-(if (= is-auto-org-to-latex 1)
+(defvar is-auto-org-to-latex t)
+(if is-auto-org-to-latex
     (add-hook 'after-save-hook 'auto-export-to-latex))
 
 (defun toggle-auto-export-to-latex ()
   (interactive)
-  (setq is-auto-org-to-latex (mod (+ is-auto-org-to-latex 1) 2))
-  (if (= is-auto-org-to-latex 0)
-      (progn
-        (remove-hook 'after-save-hook 'auto-export-to-latex)
-        (setq is-auto-org-to-latex 0)
-        (message "Disable auto export org to latex!"))
-    (progn
-      (add-hook 'after-save-hook 'auto-export-to-latex)
-      (setq is-auto-org-to-latex 1)
-      (message "Enable auto export org to latex!"))))
+  (if is-auto-org-to-latex
+      (remove-hook 'after-save-hook 'auto-export-to-latex)
+    (add-hook 'after-save-hook 'auto-export-to-latex))
+  (setq is-auto-org-to-latex (not is-auto-org-to-latex))
+  (message "%s auto export org to latex!" (if is-auto-org-to-latex "Enable" "Disable")))
 
 (defun auto-export-to-latex ()
   (if (string= major-mode "org-mode")
