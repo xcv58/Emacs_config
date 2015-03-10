@@ -39,6 +39,7 @@
 ;;(require 'init-idle)
 (require 'init-style)
 (require 'init-evil)
+(require 'init-evil-leader)
 (require 'init-kill-ring)
 (require 'init-dict)
 (require 'init-tabbar)

@@ -1,26 +1,7 @@
 (require-package 'evil)
-(require-package 'evil-leader)
-;; (require-package 'evil-matchit)
-;; ;; (require 'evil-matchit)
-;; (global-evil-matchit-mode 1)
 
 (evil-mode 1)
 (setq evil-default-cursor t)
-(global-evil-leader-mode)
-(evil-leader/set-leader "\\")
-
-(evil-leader/set-key
-  "bf" 'beginning-of-defun
-  "ef" 'end-of-defun
-  "mf" 'mark-defun
-  "eb" 'eval-buffer
-  "ee" 'eval-expression
-  "dj" 'dired-jump ;; open the dired from current file
-  "k" 'kill-this-buffer
-  "o" 'other-window
-  "v" 'visual-line-witout-end
-  "w" 'lookup-word-at-point
-  )
 
 (define-key evil-motion-state-map (kbd "C-b") 'evil-scroll-up)
 
