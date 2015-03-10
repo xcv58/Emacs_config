@@ -19,12 +19,17 @@
   "l" 'ido-downcase
   "u" 'ido-uppercase
   "c" 'ido-capitalize
+  "y" 'ido-yank-line
   )
 
 (evil-leader/set-key-for-mode
   'org-mode
   "p" 'org-latex-export-to-latex
   )
+
+(defun ido-yank-line()
+  (interactive)
+  (evil-yank (line-first-non-blank-position) (line-end-position)))
 
 (defun ido-downcase() (interactive) (apply-by-region 'downcase-region 'downcase-word))
 
