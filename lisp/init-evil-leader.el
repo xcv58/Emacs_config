@@ -27,17 +27,17 @@
   "p" 'org-latex-export-to-latex
   )
 
-(defun ido-yank-line()
+(defun ido-yank-line ()
   (interactive)
   (evil-yank (line-first-non-blank-position) (line-end-position)))
 
-(defun ido-downcase() (interactive) (apply-by-region 'downcase-region 'downcase-word))
+(defun ido-downcase () (interactive) (apply-by-region 'downcase-region 'downcase-word))
 
-(defun ido-uppercase() (interactive) (apply-by-region 'uppercase-region 'uppercase-word))
+(defun ido-uppercase () (interactive) (apply-by-region 'uppercase-region 'uppercase-word))
 
-(defun ido-capitalize() (interactive) (apply-by-region 'capitalize-region 'capitalize-word))
+(defun ido-capitalize () (interactive) (apply-by-region 'capitalize-region 'capitalize-word))
 
-(defun apply-by-region(fun-for-region fun-for-no-region)
+(defun apply-by-region (fun-for-region fun-for-no-region)
   (if (use-region-p)
       (funcall fun-for-region (region-beginning) (region-end))
     (funcall fun-for-no-region 1)))

@@ -46,6 +46,7 @@
 
 (require 'init-mode-line)
 (require 'init-smooth-scrolling)
+(require 'init-org)
 (require 'init-latex)
 (require 'init-git)
 (require 'init-completing-statements)
