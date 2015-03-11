@@ -32,6 +32,8 @@
         (cursor-type . box)
         (cursor-color . "red")))
 
+(setq linum-format "%4d\u2502")
+(add-hook 'prog-mode-hook 'linum-mode)
 
 ;; (setq initial-frame-alist '((top . 0) (left . 30)))
 
