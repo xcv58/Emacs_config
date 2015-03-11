@@ -81,7 +81,7 @@
 
 (require 'init-insert-continuous-numbers)
 
-;; (require 'init-os161)
+(require 'init-os161)
 
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
