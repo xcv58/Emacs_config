@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-'
+# contributor: Marco Ceresa https://github.com/bluemonk
+# name: Meteor session get
+# key: sget
+# group: Meteor
+# binding: direct-keybinding
+# --
+Session.get('$1');$0

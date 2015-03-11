@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-'
+# contributor: Marco Ceresa https://github.com/bluemonk
+# name: Meteor subscribe
+# key: sub
+# group: Meteor
+# binding: direct-keybinding
+# --
+Meteor.subscribe('$1'$2);$0

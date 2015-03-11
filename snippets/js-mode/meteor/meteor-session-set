@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-'
+# contributor: Marco Ceresa https://github.com/bluemonk
+# name: Meteor session set
+# key: sset
+# group: Meteor
+# binding: direct-keybinding
+# --
+Session.set('$1', ${2:$$(yas-choose-value '("true" "false" "null"))});$0

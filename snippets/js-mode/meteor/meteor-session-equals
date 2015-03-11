@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-'
+# contributor: Marco Ceresa https://github.com/bluemonk
+# name: Meteor session equals
+# key: seq
+# group: Meteor
+# binding: direct-keybinding
+# --
+Session.equals('$1', $2);$0

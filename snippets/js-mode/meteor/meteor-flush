@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-'
+# contributor: Marco Ceresa https://github.com/bluemonk
+# name: Meteor flush
+# key: flu
+# group: Meteor
+# binding: direct-keybinding
+# --
+Meteor.flush();

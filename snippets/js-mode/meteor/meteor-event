@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-'
+# contributor: Marco Ceresa https://github.com/bluemonk
+# name: event
+# key: eve
+# group: Meteor
+# binding: direct-keybinding
+# --
+'$1': function (e, t) {
+  $0
+}
