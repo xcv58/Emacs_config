@@ -26,10 +26,15 @@
         "hljs"
         "clearInterval"
         "location"
+        "Buffer"
         "__dirname"
         "console"
         "Meteor"
         "Template"
+        "Npm"
+        "_"
+        "WebApp"
+        "RoutePolicy"
         "CollectionAPI"
         "JSON"))
      (setq-default js2-basic-offset 2)))
