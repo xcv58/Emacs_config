@@ -33,7 +33,7 @@
 
 (defun ido-downcase () (interactive) (apply-by-region 'downcase-region 'downcase-word))
 
-(defun ido-uppercase () (interactive) (apply-by-region 'uppercase-region 'uppercase-word))
+(defun ido-uppercase () (interactive) (apply-by-region 'upcase-region 'upcase-word))
 
 (defun ido-capitalize () (interactive) (apply-by-region 'capitalize-region 'capitalize-word))
 
