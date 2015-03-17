@@ -32,7 +32,6 @@
 ;;----------------------------------------------------------------------------
 (require 'init-encoding)
 
-
 ;;----------------------------------------------------------------------------
 ;; Features
 ;;----------------------------------------------------------------------------
@@ -57,6 +56,7 @@
 (require 'init-auto-complete)
 ;; (require 'init-company)
 (require 'init-matlab)
+(require 'init-vimrc)
 ;; (require 'init-ibuffer)
 (require 'init-iedit)
 (require 'init-yasnippet)
@@ -105,5 +105,3 @@
 
 ;;; Show startup time
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
-(put 'upcase-region 'disabled nil)
-(put 'downcase-region 'disabled nil)
