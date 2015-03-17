@@ -12,6 +12,7 @@
 (setq ido-use-filename-at-point 'guess)
 (setq ido-auto-merge-work-directories-length 0)
 (setq ido-use-virtual-buffers t)
+(setq ido-save-directory-list-file "~/.ido.last")
 
 (require-package 'flx-ido)
 (flx-ido-mode 1)
@@ -26,6 +27,7 @@
 ;; Use smex to handle M-x
 (require-package 'smex)
 (global-set-key [remap execute-extended-command] 'smex)
+(setq smex-save-file "~/.smex-items")
 
 (require-package 'idomenu)
 
@@ -43,6 +45,5 @@
   (global-set-key [(meta f11)] 'sanityinc/ido-choose-from-recentf))
 
 (global-set-key (kbd "C-S-b") 'ido-switch-buffer)
-(global-set-key (kbd "C-S-p") 'ido-switch-buffer)
 
 (provide 'init-ido)

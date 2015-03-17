@@ -118,6 +118,7 @@
 
 ;;; set size of recent/history items
 (setq recentf-max-saved-items 1024)
+(setq recentf-save-file "~/.recentf")
 
 (setq system-uses-terminfo nil)
 
