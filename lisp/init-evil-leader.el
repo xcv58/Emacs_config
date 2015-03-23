@@ -12,6 +12,8 @@
   "eb" 'eval-buffer
   "ee" 'eval-expression
   "dj" 'dired-jump ;; open the dired from current file
+  "sh" 'shell-script-mode
+  "ja" 'java-mode
   "k" 'kill-this-buffer
   "o" 'other-window
   "v" 'visual-line-witout-end
