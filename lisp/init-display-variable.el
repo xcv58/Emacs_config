@@ -11,15 +11,19 @@
 ;    (load-theme 'twilight-anti-bright t))
 ;  (load-theme 'manoj-dark t))
 
-(defun apply-theme (frame)
-  "Apply color theme to a frame based on whether its a 'real'
-   window or a console window."
-  (select-frame frame)
-  (if (window-system frame)
-      (load-theme 'sanityinc-solarized-dark t)
-    (load-theme 'sanityinc-tomorrow-bright t)))
+;; (defun apply-theme (frame)
+;;   "Apply color theme to a frame based on whether its a 'real'
+;;    window or a console window."
+;;   (select-frame frame)
+;;   (if (window-system frame)
+;;       (load-theme 'sanityinc-solarized-dark t)
+;;     (load-theme 'sanityinc-tomorrow-bright t)))
 
-(add-hook 'after-make-frame-functions 'apply-theme)
+;; (add-hook 'after-make-frame-functions 'apply-theme)
+
+(if window-system
+    (color-theme-sanityinc-solarized-dark)
+  (color-theme-sanityinc-tomorrow-bright))
 
 ;;; Default position
 (setq default-frame-alist
