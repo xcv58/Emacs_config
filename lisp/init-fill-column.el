@@ -1,4 +1,4 @@
-(require 'fill-column-indicator)
+(require-package 'fill-column-indicator)
 (setq fci-rule-width 1)
 ;; (setq fci-rule-color "red")
 
