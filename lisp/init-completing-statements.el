@@ -3,7 +3,7 @@
 ;; 2. support multiple type of language, i.e. C, Java, Python, JavaScript, json
 (defun need-block()
   (line-first-non-blank)
-  (member (thing-at-point 'word) '("if" "while" "for" "else" "switch")))
+  (member (thing-at-point 'word) '("if" "while" "for" "else" "switch" "def")))
 
 (defun is-colon(char)
   (member char '(?\: )))
@@ -45,6 +45,7 @@
   (message (char-to-string (char-before)))
   (delete-trailing-whitespace)
   (unless (is-colon (char-before)) (insert ":"))
+  (indent-according-to-mode)
   (newline)
   (indent-according-to-mode))
 
