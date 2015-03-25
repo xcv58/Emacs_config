@@ -5,9 +5,21 @@
   (line-first-non-blank)
   (member (thing-at-point 'word) '("if" "while" "for" "else" "switch")))
 
+(defun is-colon(char)
+  (member char '(?\: )))
+
 (defun is-semicolon(char)
-  (interactive)
   (member char '(?\; )))
+
+(defun insert-end-char()
+  (if (equal major-mode 'python-mode)
+      (insert-nothing)
+    (insert-semicolon)))
+
+(defun insert-nothing()
+  (end-of-line)
+  (newline)
+  (indent-according-to-mode))
 
 (defun insert-semicolon()
   (end-of-line)
@@ -16,7 +28,7 @@
     (insert ";"))
   (indent-according-to-mode))
 
-(defun insert-block()
+(defun insert-c-style-block()
   (end-of-line)
   (message (char-to-string (char-before)))
   (delete-trailing-whitespace)
@@ -28,11 +40,24 @@
   (forward-line -1)
   (indent-according-to-mode))
 
+(defun insert-python-block()
+  (end-of-line)
+  (message (char-to-string (char-before)))
+  (delete-trailing-whitespace)
+  (unless (is-colon (char-before)) (insert ":"))
+  (newline)
+  (indent-according-to-mode))
+
+(defun insert-block()
+  (if (equal major-mode 'python-mode)
+      (insert-python-block)
+    (insert-c-style-block)))
+
 (defun complete-statement()
   (interactive)
   (if (need-block)
       (insert-block)
-    (insert-semicolon)))
+    (insert-end-char)))
 
 (global-set-key (kbd "C-<return>") 'complete-statement)
 
