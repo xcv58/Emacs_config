@@ -18,6 +18,7 @@
 
 (defun insert-nothing()
   (end-of-line)
+  (if (is-semicolon (char-before)) (delete-char -1))
   (newline)
   (indent-according-to-mode))
 
