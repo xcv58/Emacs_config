@@ -119,6 +119,19 @@
 ;; (global-set-key [M-tab] 'my-backward-buffer)
 
 ;;----------------------------------------------------------------------------
+;; scratch buffer related
+;;----------------------------------------------------------------------------
+(defun switch-to-scratch-buffer nil
+  "create a scratch buffer"
+  (interactive)
+  (switch-to-buffer (get-buffer-create "*scratch*"))
+  (lisp-interaction-mode))
+
+(defun generate-scratch-buffer nil
+  (interactive)
+  (switch-to-buffer (make-temp-name "scratch")))
+
+;;----------------------------------------------------------------------------
 ;; Switch between tab indent
 ;;----------------------------------------------------------------------------
 (defun toggle-tab-indent ()

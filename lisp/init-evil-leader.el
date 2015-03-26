@@ -23,6 +23,8 @@
   "u" 'ido-uppercase
   "c" 'ido-capitalize
   "y" 'ido-yank-line
+  "n" 'generate-scratch-buffer
+  "s" 'switch-to-scratch-buffer
   )
 
 (evil-leader/set-key-for-mode
