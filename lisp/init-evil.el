@@ -6,7 +6,7 @@
 (define-key evil-motion-state-map (kbd "C-b") 'evil-scroll-up)
 
 ;; remap 0 to evil-first-non-blank
-(defun line-first-non-blank-position()
+(defun line-first-non-blank-position ()
   (let* ((point (point))
          (first-non-blank-position (progn (evil-first-non-blank) (point))))
     (goto-char point)
@@ -67,5 +67,20 @@ Move point to the beginning of the line, and run the normal hook
        (progress-reporter-done spew)))
    (beginning-of-line)
    (run-hooks 'hs-hide-hook)))
+
+(evil-define-operator evil-indent (beg end)
+  "Indent text."
+  :move-point nil
+  :type line
+  (if (and (= beg (line-beginning-position))
+           (= end (line-beginning-position 2)))
+      ;; since some Emacs modes can only indent one line at a time,
+      ;; implement "==" as a call to `indent-according-to-mode'
+      (indent-according-to-mode)
+    (goto-char beg)
+    (indent-region beg end))
+  (back-to-indentation)
+  (forward-line))
+(define-key evil-normal-state-map "=" 'evil-indent)
 
 (provide 'init-evil)
