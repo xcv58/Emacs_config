@@ -128,7 +128,7 @@
 (setq system-uses-terminfo nil)
 
 ;;; Set opacity transparency
-(defvar default-transparency '(89 64))
+(defvar default-transparency '(89 89))
 (set-frame-parameter (selected-frame) 'alpha default-transparency)
 (add-to-list 'default-frame-alist (cons 'alpha default-transparency))
 
