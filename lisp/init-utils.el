@@ -129,7 +129,12 @@
 
 (defun generate-scratch-buffer nil
   (interactive)
-  (switch-to-buffer (make-temp-name "scratch")))
+  (switch-to-buffer
+   (make-temp-name
+    (concat
+     (format-time-string "%Y-%m-%d_%H:%M:%S")
+     "_scratch_")))
+  (write-file (concat "/tmp/" (buffer-name))))
 
 ;;----------------------------------------------------------------------------
 ;; Switch between tab indent
