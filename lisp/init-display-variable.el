@@ -37,7 +37,8 @@
         (cursor-color . "red")))
 
 (setq linum-format "%4d\u2502")
-(add-hook 'prog-mode-hook 'linum-mode)
+;; (add-hook 'prog-mode-hook 'linum-mode)
+(global-linum-mode t)
 
 ;; (setq initial-frame-alist '((top . 0) (left . 30)))
 
