@@ -22,7 +22,7 @@ link_dir() {
     if [[ -d ${TARGET} ]]; then
         realpath=$(readlink ${TARGET})
         if [[ ${realpath} == ${SOURCE} ]]; then
-            echo "Already install"
+            echo "${TARGET} already installed!"
             exit
         else
             echo "mv ${TARGET} ${TARGET}_BACK_`date +%s`"
