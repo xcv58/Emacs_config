@@ -63,6 +63,20 @@
 ;;----------------------------------------------------------------------------
 (global-set-key [(control x) (control k)] 'kill-this-buffer)
 
+(defun kill-all-buffers ()
+  "Kill all buffers."
+  (interactive)
+  (setq list (buffer-list))
+  (while list
+    (let* ((buffer (car list))
+           (name (buffer-name buffer)))
+      (and name                         ; Can be nil for an indirect buffer
+                                        ; if we killed the base buffer.
+           (not (string-equal name ""))
+           (/= (aref name 0) ?\s)
+           (kill-buffer buffer)))
+    (setq list (cdr list))))
+
 ;;----------------------------------------------------------------------------
 ;; Key to switch between tabs,
 ;;----------------------------------------------------------------------------

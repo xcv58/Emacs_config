@@ -16,6 +16,7 @@
   "ja" 'java-mode
   "r" 'revert-buffer-no-confirm
   "k" 'kill-this-buffer
+  "K" 'kill-all-buffers
   "o" 'other-window
   "v" 'visual-line-witout-end
   "w" 'lookup-word-at-point
