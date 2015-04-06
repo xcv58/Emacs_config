@@ -6,6 +6,7 @@
 (evil-leader/set-leader "C-1")
 
 (evil-leader/set-key
+  "ay" 'yank-whole-buffer
   "bf" 'beginning-of-defun
   "ef" 'end-of-defun
   "mf" 'mark-defun
