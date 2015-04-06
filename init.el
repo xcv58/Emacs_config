@@ -1,3 +1,8 @@
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+(package-initialize)
+
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
@@ -42,6 +47,7 @@
 (require 'init-kill-ring)
 (require 'init-dict)
 (require 'init-tabbar)
+(require 'init-multiple-cursors)
 
 (require 'init-mode-line)
 (require 'init-smooth-scrolling)
@@ -106,3 +112,17 @@
 
 ;;; Show startup time
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (multiple-cursors yasnippet w3 vimrc-mode twilight-anti-bright-theme tabbar-ruler smooth-scrolling smooth-scroll smex smartparens smart-mode-line slime popup-kill-ring js2-mode iedit idomenu ido-vertical-mode ido-ubiquitous ido-hacks guide-key-tip groovy-mode gradle-mode google-c-style git-timemachine fuzzy flx-ido fill-column-indicator expand-region evil-leader ethan-wspace etags-select dired+ color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized cdlatex browse-kill-ring auto-complete auctex anzu ag))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
