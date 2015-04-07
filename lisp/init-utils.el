@@ -155,7 +155,8 @@
 ;;----------------------------------------------------------------------------
 (defun yank-whole-buffer ()
   (interactive)
-  (kill-ring-save (point-min) (point-max)))
+  (kill-ring-save (point-min) (point-max))
+  (message "yank whole buffer"))
 
 ;;----------------------------------------------------------------------------
 ;; Switch between tab indent
