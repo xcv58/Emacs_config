@@ -18,7 +18,7 @@
 (define-key sp-keymap (kbd "C-c u") 'sp-unwrap-sexp)
 
 (defun is-close-char (char)
-  (member char '(?\( ?\) ?\] ?\, ? ?\$ ?\. ?\" ?\{ ?\})))
+  (member char '(?\( ?\) ?\] ?\, ? ?\$ ?\. ?\" ?\' ?\{ ?\})))
 
 (defun end-of-this()
   (interactive)
