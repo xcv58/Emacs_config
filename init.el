@@ -16,6 +16,13 @@
 (setq exec-path (append exec-path '("/usr/local/bin" "/usr/texbin")))
 
 ;;----------------------------------------------------------------------------
+;; Variables configured via the interactive 'customize' interface
+;;----------------------------------------------------------------------------
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
+;;----------------------------------------------------------------------------
 ;; Path for eshell
 ;;----------------------------------------------------------------------------
 ;; (defun eshell-mode-hook-func ()
@@ -89,13 +96,6 @@
 (require 'init-insert-continuous-numbers)
 
 (require 'init-os161)
-
-;;----------------------------------------------------------------------------
-;; Variables configured via the interactive 'customize' interface
-;;----------------------------------------------------------------------------
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
 
 ;; Config about theme and font and variable
 ;; Move down to avoid local setting overwrite theme setting
