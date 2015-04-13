@@ -53,7 +53,7 @@
 (require 'init-evil-leader)
 (require 'init-kill-ring)
 (require 'init-dict)
-(require 'init-tabbar)
+;; (require 'init-tabbar)
 (require 'init-multiple-cursors)
 
 (require 'init-mode-line)
