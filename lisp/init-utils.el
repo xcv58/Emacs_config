@@ -127,8 +127,8 @@
                          (subseq buffer-list 0 how-many-buffers)))
         (switch-to-buffer (nth how-many-buffers buffer-list))))))
 
-;; (global-set-key (kbd "C-<tab>") 'my-next-buffer)
-;; (global-set-key (kbd "C-S-<tab>") 'my-previous-buffer)
+(global-set-key (kbd "C-<tab>") 'my-previous-buffer)
+(global-set-key (kbd "C-S-<tab>") 'my-next-buffer)
 ;; (global-set-key (kbd "C-<tab>") 'my-next-buffer)
 ;; (global-set-key [M-tab] 'my-backward-buffer)
 
