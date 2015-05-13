@@ -1,5 +1,6 @@
 ;; (require-package 'js3-mode)
 (require-package 'js2-mode)
+(require-package 'json-reformat)
 
 (add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode))
 
