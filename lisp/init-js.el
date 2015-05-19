@@ -30,6 +30,7 @@
         "Buffer"
         "__dirname"
         "console"
+        "debug"
         "Meteor"
         "Template"
         "Npm"
