@@ -38,6 +38,9 @@
         "WebApp"
         "RoutePolicy"
         "CollectionAPI"
+        "Session"
+        "Router"
+        "ReactiveMethod"
         "JSON"))
      (setq-default js2-basic-offset 2)))
 
