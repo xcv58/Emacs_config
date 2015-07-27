@@ -41,7 +41,11 @@
         "Session"
         "Router"
         "ReactiveMethod"
-        "JSON"))
+        "JSON"
+        "describe"
+        "it"
+        "expect"
+        ))
      (setq-default js2-basic-offset 2)))
 
 (provide 'init-js)
