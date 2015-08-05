@@ -193,7 +193,7 @@
 ;; Save place
 ;;----------------------------------------------------------------------------
 (require 'saveplace)
-(setq-default save-place-mode t)
+(save-place-mode t)
 (setq save-place-file "~/.saved-places-emacs")
 
 
