@@ -102,6 +102,8 @@
 (require 'init-display-variable)
 (require 'init-fill-column)
 
+(require 'init-kbd)
+
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
