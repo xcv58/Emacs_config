@@ -100,7 +100,7 @@
 ;; Config about theme and font and variable
 ;; Move down to avoid local setting overwrite theme setting
 (require 'init-display-variable)
-(require 'init-fill-column)
+;; (require 'init-fill-column)
 
 (require 'init-kbd)
 
