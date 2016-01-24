@@ -95,7 +95,7 @@
 
 (require 'init-insert-continuous-numbers)
 
-;; (require 'init-os161)
+(require 'init-os161)
 
 ;; Config about theme and font and variable
 ;; Move down to avoid local setting overwrite theme setting

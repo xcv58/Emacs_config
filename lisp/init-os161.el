@@ -30,6 +30,8 @@
               (when (and filename
                          (or (string-match (expand-file-name "~/src/")
                                            filename)
+                             (string-match ".*os161.*"
+                                           filename)
                              (string-match (expand-file-name "~/linux-master/")
                                            filename)))
                 (setq indent-tabs-mode t)
