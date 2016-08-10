@@ -83,6 +83,7 @@
 (require 'init-prolog)
 (require 'init-lua)
 ;; (require 'init-java)
+(require 'init-scala)
 (require 'init-js)
 
 ;; (require 'init-vc)
