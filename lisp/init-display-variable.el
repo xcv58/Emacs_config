@@ -94,8 +94,10 @@
 ;;; Default cursor color
 ;; (set-cursor-color "#ffffff")
 
+(setq-default default-directory-list '("~/workspace/source" "~/Dropbox"))
+
 (setq
- default-directory (if (file-exists-p "~/Dropbox") "~/Dropbox" "~")
+ default-directory (car (remove-if-not #'file-exists-p (append default-directory-list '("~"))))
  inhibit-startup-message t
  ;; follow symlinks and don't ask
  blink-cursor-interval 1.5
