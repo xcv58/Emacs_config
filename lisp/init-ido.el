@@ -1,6 +1,13 @@
 (require-package 'ido-vertical-mode)
 (require-package 'ido-hacks)
 
+(if (not (boundp 'ido-cur-item))
+   (setq-default ido-cur-item nil))
+(if (not (boundp 'ido-default-item))
+   (setq-default ido-default-item nil))
+(if (not (boundp 'ido-cur-list))
+   (setq-default ido-cur-list nil))
+
 ;; Use C-f during file selection to switch to regular find-file
 (ido-mode t)
 (ido-everywhere t)

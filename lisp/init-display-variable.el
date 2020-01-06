@@ -94,7 +94,7 @@
 ;;; Default cursor color
 ;; (set-cursor-color "#ffffff")
 
-(setq-default default-directory-list '("~/workspace/source" "~/Dropbox"))
+(setq-default default-directory-list '("~/workspace/source" "~/work"))
 
 (setq
  default-directory (car (remove-if-not #'file-exists-p (append default-directory-list '("~"))))
