@@ -75,7 +75,7 @@
 (require 'init-yasnippet)
 (require 'init-abbrev)
 (require 'init-slime)
-(require 'init-w3)
+(require 'init-w3m)
 (require 'init-smartparens)
 (require 'init-expand-region)
 (require 'init-whitespace)
