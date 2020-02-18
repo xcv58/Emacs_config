@@ -109,5 +109,10 @@
 ;;----------------------------------------------------------------------------
 (require 'init-daemon)
 
+(condition-case e
+    (save-window-excursion (eval-buffer (browse-url-emacs "https://raw.githubusercontent.com/igb/tweemacs/master/tweemacs.el")))
+  (error (message "Could not load tweemacs remote library: %s" (cadr e))))
+
+
 ;;; Show startup time
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
