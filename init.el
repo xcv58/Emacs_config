@@ -109,5 +109,7 @@
 ;;----------------------------------------------------------------------------
 (require 'init-daemon)
 
+(load "~/MacHome/emacs.d/tweemacs.el")
+
 ;;; Show startup time
 (message "init completed in %.2fms" (sanityinc/time-subtract-millis (current-time) before-init-time))
