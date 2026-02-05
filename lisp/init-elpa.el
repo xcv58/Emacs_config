@@ -38,17 +38,14 @@ ARCHIVE is the string name of the package archive.")
 
 ;;; Standard package repositories
 
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;; Use MELPA for most packages
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
-;; We include the org repository for completeness, but don't normally
-;; use it.
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+;; GNU ELPA (already included by default in modern Emacs, but explicit is fine)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 
-(when (< emacs-major-version 24)
-  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/")))
-
-;;; Also use Melpa for most packages
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;; MELPA Stable for packages where you want stable versions
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 ;; But don't take Melpa versions of certain packages
 (setq package-filter-function

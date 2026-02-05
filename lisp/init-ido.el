@@ -28,7 +28,7 @@
 (setq gc-cons-threshold 64000000)
 
 (when (eval-when-compile (>= emacs-major-version 24))
-  (require-package 'ido-ubiquitous)
+  (require-package 'ido-completing-read+)
   (ido-ubiquitous-mode t))
 
 ;; Use smex to handle M-x

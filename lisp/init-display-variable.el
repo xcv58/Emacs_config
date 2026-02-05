@@ -36,14 +36,15 @@
         (cursor-type . box)
         (cursor-color . "red")))
 
-(setq linum-format "%4d\u2502")
-;; (add-hook 'prog-mode-hook 'linum-mode)
-(global-linum-mode t)
+;; Use display-line-numbers-mode (linum-mode was removed in Emacs 29)
+(setq display-line-numbers-type t)
+(global-display-line-numbers-mode t)
 
 ;; (setq initial-frame-alist '((top . 0) (left . 30)))
 
-;;; Disable scroll bar
-(scroll-bar-mode -1)
+;;; Disable scroll bar (only in GUI mode)
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
 
 ;;; Default Fullscreen
 (defun maximize-frame ()
@@ -61,7 +62,7 @@
 (custom-set-variables
  '(tool-bar-mode nil))
 
-(when (eq system-type 'darwin)
+(when (and (eq system-type 'darwin) (display-graphic-p))
   ;; default Latin font (e.g. Consolas)
   ;; (set-face-attribute 'default nil :family "Monaco")
   ;; (set-face-attribute 'default nil :family "Source-Code-Pro")
@@ -81,7 +82,7 @@
   ;; you may want to add different for other charset in this way.
   )
 
-(when (eq system-type 'gnu/linux)
+(when (and (eq system-type 'gnu/linux) (display-graphic-p))
   (set-face-attribute 'default nil :family "Inconsolata")
   (set-face-attribute 'default nil :height 200)
   (set-fontset-font t 'han (font-spec :family "Hiragino Sans GB" )))

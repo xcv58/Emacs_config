@@ -1,10 +1,11 @@
-(require-package 'etags-select)
+;; etags-select is no longer available on MELPA
+;; Use built-in xref which works with etags
 
 (setq tags-revert-without-query 1)
 
-;;binding the key
-(global-set-key "\M-?" 'etags-select-find-tag-at-point)
-(global-set-key "\M-." 'etags-select-find-tag)
+;; Use xref (built-in) for tag navigation
+(global-set-key "\M-?" 'xref-find-references)
+(global-set-key "\M-." 'xref-find-definitions)
 
 (defun jds-find-tags-file ()
   "recursively searches each parent directory for a file named 'TAGS' and returns the

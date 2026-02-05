@@ -18,7 +18,8 @@
       (evil-beginning-of-line)
     (evil-first-non-blank)))
 
-(evil-redirect-digit-argument evil-motion-state-map "0" 'evil-first-non-blank-or-beginning-of-line)
+;; In modern Evil, just bind "0" directly in motion state
+(define-key evil-motion-state-map "0" 'evil-first-non-blank-or-beginning-of-line)
 (define-key evil-motion-state-map "^" 'evil-beginning-of-line)
 ;; add hook hs-minor-mode for c-mode
 ;; add func hs-hide-all-comments

@@ -109,9 +109,11 @@
 ;;----------------------------------------------------------------------------
 (require 'init-daemon)
 
-(condition-case e
-    (save-window-excursion (eval-buffer (browse-url-emacs "https://raw.githubusercontent.com/igb/tweemacs/master/tweemacs.el")))
-  (error (message "Could not load tweemacs remote library: %s" (cadr e))))
+;; Disabled: tweemacs remote loading was broken and slow
+;; If you need tweemacs, install it via: M-x package-install RET tweemacs RET
+;; (condition-case e
+;;     (save-window-excursion (eval-buffer (browse-url-emacs "https://raw.githubusercontent.com/igb/tweemacs/master/tweemacs.el")))
+;;   (error (message "Could not load tweemacs remote library: %s" (cadr e))))
 
 
 ;;; Show startup time
